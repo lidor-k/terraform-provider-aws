@@ -13,9 +13,9 @@ import (
 	awstypes "github.com/aws/aws-sdk-go-v2/service/quicksight/types"
 	"github.com/hashicorp/aws-sdk-go-base/v2/tfawserr"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
-	"github.com/hashicorp/terraform-provider-aws/internal/sweep"
-	"github.com/hashicorp/terraform-provider-aws/internal/sweep/awsv2"
-	"github.com/hashicorp/terraform-provider-aws/internal/sweep/framework"
+	"github.com/hashicorp/terraform-provider-aws/exported/sweep"
+	"github.com/hashicorp/terraform-provider-aws/exported/sweep/awsv2"
+	"github.com/hashicorp/terraform-provider-aws/exported/sweep/framework"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -58,7 +58,7 @@ func RegisterSweepers() {
 }
 
 const (
-	// Defined locally to avoid cyclic import from internal/acctest
+	// Defined locally to avoid cyclic import from exported/acctest
 	acctestResourcePrefix = "tf-acc-test"
 )
 

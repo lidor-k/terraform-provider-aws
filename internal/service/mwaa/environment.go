@@ -18,14 +18,14 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/retry"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	"github.com/hashicorp/terraform-provider-aws/internal/enum"
-	"github.com/hashicorp/terraform-provider-aws/internal/errs"
-	"github.com/hashicorp/terraform-provider-aws/internal/errs/sdkdiag"
-	"github.com/hashicorp/terraform-provider-aws/internal/flex"
-	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
-	"github.com/hashicorp/terraform-provider-aws/internal/verify"
+	"github.com/hashicorp/terraform-provider-aws/exported/conns"
+	"github.com/hashicorp/terraform-provider-aws/exported/enum"
+	"github.com/hashicorp/terraform-provider-aws/exported/errs"
+	"github.com/hashicorp/terraform-provider-aws/exported/errs/sdkdiag"
+	"github.com/hashicorp/terraform-provider-aws/exported/flex"
+	tftags "github.com/hashicorp/terraform-provider-aws/exported/tags"
+	"github.com/hashicorp/terraform-provider-aws/exported/tfresource"
+	"github.com/hashicorp/terraform-provider-aws/exported/verify"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -417,10 +417,10 @@ func resourceEnvironmentCreate(ctx context.Context, d *schema.ResourceData, meta
 		due to IAM permission propagation delays.
 	*/
 
-	var validationException, internalServerException = &awstypes.ValidationException{}, &awstypes.InternalServerException{}
+	var validationException, exportedServerException = &awstypes.ValidationException{}, &awstypes.InternalServerException{}
 	_, err := tfresource.RetryWhenAWSErrCodeEquals(ctx, propagationTimeout, func() (interface{}, error) {
 		return conn.CreateEnvironment(ctx, input)
-	}, validationException.ErrorCode(), internalServerException.ErrorCode())
+	}, validationException.ErrorCode(), exportedServerException.ErrorCode())
 
 	if err != nil {
 		return sdkdiag.AppendErrorf(diags, "creating MWAA Environment (%s): %s", name, err)

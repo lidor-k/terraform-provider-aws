@@ -16,11 +16,11 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/acmpca/types"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	"github.com/hashicorp/terraform-provider-aws/internal/errs"
-	tfacmpca "github.com/hashicorp/terraform-provider-aws/internal/service/acmpca"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
+	"github.com/hashicorp/terraform-provider-aws/exported/conns"
+	"github.com/hashicorp/terraform-provider-aws/exported/errs"
+	tfacmpca "github.com/hashicorp/terraform-provider-aws/exported/service/acmpca"
+	"github.com/hashicorp/terraform-provider-aws/exported/tfresource"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

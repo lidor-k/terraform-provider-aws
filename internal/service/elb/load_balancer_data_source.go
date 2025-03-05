@@ -12,11 +12,11 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/elasticloadbalancing"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	"github.com/hashicorp/terraform-provider-aws/internal/errs/sdkdiag"
-	"github.com/hashicorp/terraform-provider-aws/internal/flex"
-	tfec2 "github.com/hashicorp/terraform-provider-aws/internal/service/ec2"
-	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
+	"github.com/hashicorp/terraform-provider-aws/exported/conns"
+	"github.com/hashicorp/terraform-provider-aws/exported/errs/sdkdiag"
+	"github.com/hashicorp/terraform-provider-aws/exported/flex"
+	tfec2 "github.com/hashicorp/terraform-provider-aws/exported/service/ec2"
+	tftags "github.com/hashicorp/terraform-provider-aws/exported/tags"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -130,7 +130,7 @@ func dataSourceLoadBalancer() *schema.Resource {
 				Computed: true,
 			},
 
-			"internal": {
+			"exported": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
@@ -242,9 +242,9 @@ func dataSourceLoadBalancerRead(ctx context.Context, d *schema.ResourceData, met
 
 	var scheme bool
 	if lb.Scheme != nil {
-		scheme = aws.ToString(lb.Scheme) == "internal"
+		scheme = aws.ToString(lb.Scheme) == "exported"
 	}
-	d.Set("internal", scheme)
+	d.Set("exported", scheme)
 	d.Set(names.AttrAvailabilityZones, flex.FlattenStringValueList(lb.AvailabilityZones))
 	d.Set("instances", flattenInstances(lb.Instances))
 	d.Set("listener", flattenListenerDescriptions(lb.ListenerDescriptions))

@@ -7,8 +7,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	tfevents "github.com/hashicorp/terraform-provider-aws/internal/service/events"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
+	tfevents "github.com/hashicorp/terraform-provider-aws/exported/service/events"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

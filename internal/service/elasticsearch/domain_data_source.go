@@ -10,9 +10,9 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/structure"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	"github.com/hashicorp/terraform-provider-aws/internal/errs/sdkdiag"
-	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
+	"github.com/hashicorp/terraform-provider-aws/exported/conns"
+	"github.com/hashicorp/terraform-provider-aws/exported/errs/sdkdiag"
+	tftags "github.com/hashicorp/terraform-provider-aws/exported/tags"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -40,7 +40,7 @@ func dataSourceDomain() *schema.Resource {
 							Type:     schema.TypeBool,
 							Computed: true,
 						},
-						"internal_user_database_enabled": {
+						"exported_user_database_enabled": {
 							Type:     schema.TypeBool,
 							Computed: true,
 						},

@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	tfsagemaker "github.com/hashicorp/terraform-provider-aws/internal/service/sagemaker"
+	tfsagemaker "github.com/hashicorp/terraform-provider-aws/exported/service/sagemaker"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

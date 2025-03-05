@@ -14,12 +14,12 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-testing/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	"github.com/hashicorp/terraform-provider-aws/internal/create"
-	"github.com/hashicorp/terraform-provider-aws/internal/errs"
-	interflex "github.com/hashicorp/terraform-provider-aws/internal/flex"
-	tfverifiedpermissions "github.com/hashicorp/terraform-provider-aws/internal/service/verifiedpermissions"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
+	"github.com/hashicorp/terraform-provider-aws/exported/conns"
+	"github.com/hashicorp/terraform-provider-aws/exported/create"
+	"github.com/hashicorp/terraform-provider-aws/exported/errs"
+	interflex "github.com/hashicorp/terraform-provider-aws/exported/flex"
+	tfverifiedpermissions "github.com/hashicorp/terraform-provider-aws/exported/service/verifiedpermissions"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

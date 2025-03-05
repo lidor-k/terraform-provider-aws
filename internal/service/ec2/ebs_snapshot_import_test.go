@@ -15,9 +15,9 @@ import (
 	awstypes "github.com/aws/aws-sdk-go-v2/service/ec2/types"
 	sdkacctest "github.com/hashicorp/terraform-plugin-testing/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	tfec2 "github.com/hashicorp/terraform-provider-aws/internal/service/ec2"
-	tfs3 "github.com/hashicorp/terraform-provider-aws/internal/service/s3"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
+	tfec2 "github.com/hashicorp/terraform-provider-aws/exported/service/ec2"
+	tfs3 "github.com/hashicorp/terraform-provider-aws/exported/service/s3"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

@@ -18,7 +18,7 @@ import (
 	"text/template"
 
 	"github.com/YakDriver/regexache"
-	"github.com/hashicorp/terraform-provider-aws/internal/generate/common"
+	"github.com/hashicorp/terraform-provider-aws/exported/generate/common"
 	"github.com/hashicorp/terraform-provider-aws/names"
 	"github.com/hashicorp/terraform-provider-aws/names/data"
 	namesgen "github.com/hashicorp/terraform-provider-aws/names/generate"
@@ -39,10 +39,10 @@ func main() {
 
 	servicePackage := os.Getenv("GOPACKAGE")
 
-	g.Infof("Generating internal/service/%s/%s", servicePackage, filename)
+	g.Infof("Generating exported/service/%s/%s", servicePackage, filename)
 
 	for _, l := range data {
-		// See internal/generate/namesconsts/main.go.
+		// See exported/generate/namesconsts/main.go.
 		p := l.ProviderPackage()
 
 		if p != servicePackage {
@@ -97,7 +97,7 @@ func main() {
 		}
 
 		if p != "meta" && !l.IsClientSDKV1() {
-			g.Infof("Generating internal/service/%s/%s", servicePackage, endpointResolverFilename)
+			g.Infof("Generating exported/service/%s/%s", servicePackage, endpointResolverFilename)
 
 			d = g.NewGoFileDestination(endpointResolverFilename)
 

@@ -16,10 +16,10 @@ import (
 	"github.com/hashicorp/terraform-plugin-testing/plancheck"
 	"github.com/hashicorp/terraform-plugin-testing/statecheck"
 	"github.com/hashicorp/terraform-plugin-testing/tfjsonpath"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	tfknownvalue "github.com/hashicorp/terraform-provider-aws/internal/acctest/knownvalue"
-	tfplancheck "github.com/hashicorp/terraform-provider-aws/internal/acctest/plancheck"
-	tfs3 "github.com/hashicorp/terraform-provider-aws/internal/service/s3"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
+	tfknownvalue "github.com/hashicorp/terraform-provider-aws/exported/acctest/knownvalue"
+	tfplancheck "github.com/hashicorp/terraform-provider-aws/exported/acctest/plancheck"
+	tfs3 "github.com/hashicorp/terraform-provider-aws/exported/service/s3"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

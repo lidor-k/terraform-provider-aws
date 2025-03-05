@@ -16,10 +16,10 @@ import (
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/plancheck"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfecs "github.com/hashicorp/terraform-provider-aws/internal/service/ecs"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
+	"github.com/hashicorp/terraform-provider-aws/exported/conns"
+	tfecs "github.com/hashicorp/terraform-provider-aws/exported/service/ecs"
+	"github.com/hashicorp/terraform-provider-aws/exported/tfresource"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -3761,8 +3761,8 @@ TASK_DEFINITION
       scope         = "task"
 
       driver_opts = {
-        device = "test-efs.internal:/"
-        o      = "addr=test-efs.internal,nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=%[2]s,retrans=2,noresvport"
+        device = "test-efs.exported:/"
+        o      = "addr=test-efs.exported,nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=%[2]s,retrans=2,noresvport"
         type   = "nfs"
       }
     }

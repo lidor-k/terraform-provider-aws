@@ -20,7 +20,7 @@ func expandAdvancedSecurityOptions(m []interface{}) *awstypes.AdvancedSecurityOp
 		config.Enabled = aws.Bool(advancedSecurityEnabled.(bool))
 
 		if advancedSecurityEnabled.(bool) {
-			if v, ok := group["internal_user_database_enabled"].(bool); ok {
+			if v, ok := group["exported_user_database_enabled"].(bool); ok {
 				config.InternalUserDatabaseEnabled = aws.Bool(v)
 			}
 
@@ -180,7 +180,7 @@ func flattenAdvancedSecurityOptions(advancedSecurityOptions *awstypes.AdvancedSe
 	m := map[string]interface{}{}
 	m[names.AttrEnabled] = aws.ToBool(advancedSecurityOptions.Enabled)
 	if aws.ToBool(advancedSecurityOptions.Enabled) {
-		m["internal_user_database_enabled"] = aws.ToBool(advancedSecurityOptions.InternalUserDatabaseEnabled)
+		m["exported_user_database_enabled"] = aws.ToBool(advancedSecurityOptions.InternalUserDatabaseEnabled)
 	}
 
 	return []map[string]interface{}{m}
@@ -290,7 +290,7 @@ func getUserDBEnabled(d *schema.ResourceData) bool {
 		options := v.([]interface{})
 		if len(options) > 0 && options[0] != nil {
 			m := options[0].(map[string]interface{})
-			if enabled, ok := m["internal_user_database_enabled"]; ok {
+			if enabled, ok := m["exported_user_database_enabled"]; ok {
 				return enabled.(bool)
 			}
 		}

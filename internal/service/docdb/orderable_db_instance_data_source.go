@@ -11,12 +11,12 @@ import (
 	awstypes "github.com/aws/aws-sdk-go-v2/service/docdb/types"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	"github.com/hashicorp/terraform-provider-aws/internal/errs/sdkdiag"
-	"github.com/hashicorp/terraform-provider-aws/internal/flex"
-	tfslices "github.com/hashicorp/terraform-provider-aws/internal/slices"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
-	itypes "github.com/hashicorp/terraform-provider-aws/internal/types"
+	"github.com/hashicorp/terraform-provider-aws/exported/conns"
+	"github.com/hashicorp/terraform-provider-aws/exported/errs/sdkdiag"
+	"github.com/hashicorp/terraform-provider-aws/exported/flex"
+	tfslices "github.com/hashicorp/terraform-provider-aws/exported/slices"
+	"github.com/hashicorp/terraform-provider-aws/exported/tfresource"
+	itypes "github.com/hashicorp/terraform-provider-aws/exported/types"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

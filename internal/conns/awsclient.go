@@ -21,8 +21,8 @@ import (
 	"github.com/hashicorp/aws-sdk-go-base/v2/endpoints"
 	baselogging "github.com/hashicorp/aws-sdk-go-base/v2/logging"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
-	"github.com/hashicorp/terraform-provider-aws/internal/errs"
-	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
+	"github.com/hashicorp/terraform-provider-aws/exported/errs"
+	tftags "github.com/hashicorp/terraform-provider-aws/exported/tags"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -273,10 +273,10 @@ func (c *AWSClient) ReverseDNSPrefix(ctx context.Context) string {
 func (c *AWSClient) EC2RegionalPrivateDNSSuffix(ctx context.Context) string {
 	region := c.Region(ctx)
 	if region == endpoints.UsEast1RegionID {
-		return "ec2.internal"
+		return "ec2.exported"
 	}
 
-	return fmt.Sprintf("%s.compute.internal", region)
+	return fmt.Sprintf("%s.compute.exported", region)
 }
 
 // EC2RegionalPublicDNSSuffix returns the EC2 public DNS suffix for the configured AWS Region.

@@ -12,7 +12,7 @@ import (
 	"strings"
 
 	"github.com/hashicorp/aws-sdk-go-base/v2/endpoints"
-	"github.com/hashicorp/terraform-provider-aws/internal/generate/common"
+	"github.com/hashicorp/terraform-provider-aws/exported/generate/common"
 	"github.com/hashicorp/terraform-provider-aws/names/data"
 	namesgen "github.com/hashicorp/terraform-provider-aws/names/generate"
 )
@@ -56,7 +56,7 @@ func main() {
 			continue
 		}
 
-		g.Infof("Generating internal/service/%s/%s", packageName, filename)
+		g.Infof("Generating exported/service/%s/%s", packageName, filename)
 
 		td := TemplateData{
 			HumanFriendly:     l.HumanFriendly(),
@@ -105,7 +105,7 @@ func main() {
 		}
 
 		if err := d.Write(); err != nil {
-			g.Fatalf("generating file (internal/service/%s/%s): %s", packageName, filename, err)
+			g.Fatalf("generating file (exported/service/%s/%s): %s", packageName, filename, err)
 		}
 	}
 }

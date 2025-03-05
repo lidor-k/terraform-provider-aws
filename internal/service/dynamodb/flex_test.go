@@ -13,8 +13,8 @@ import (
 
 	awstypes "github.com/aws/aws-sdk-go-v2/service/dynamodb/types"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/structure"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	tfdynamodb "github.com/hashicorp/terraform-provider-aws/internal/service/dynamodb"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
+	tfdynamodb "github.com/hashicorp/terraform-provider-aws/exported/service/dynamodb"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

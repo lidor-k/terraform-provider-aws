@@ -12,7 +12,7 @@ import (
 	"github.com/YakDriver/regexache"
 	"github.com/hashicorp/go-cty/cty"
 	"github.com/hashicorp/go-version"
-	tfelasticache "github.com/hashicorp/terraform-provider-aws/internal/service/elasticache"
+	tfelasticache "github.com/hashicorp/terraform-provider-aws/exported/service/elasticache"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

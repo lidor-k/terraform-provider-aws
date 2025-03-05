@@ -8,8 +8,8 @@ import (
 
 	"github.com/YakDriver/regexache"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	tfkms "github.com/hashicorp/terraform-provider-aws/internal/service/kms"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
+	tfkms "github.com/hashicorp/terraform-provider-aws/exported/service/kms"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

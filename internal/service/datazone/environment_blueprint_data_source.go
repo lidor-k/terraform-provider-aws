@@ -12,10 +12,10 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
-	"github.com/hashicorp/terraform-provider-aws/internal/create"
-	"github.com/hashicorp/terraform-provider-aws/internal/framework"
-	"github.com/hashicorp/terraform-provider-aws/internal/framework/flex"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
+	"github.com/hashicorp/terraform-provider-aws/exported/create"
+	"github.com/hashicorp/terraform-provider-aws/exported/framework"
+	"github.com/hashicorp/terraform-provider-aws/exported/framework/flex"
+	"github.com/hashicorp/terraform-provider-aws/exported/tfresource"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

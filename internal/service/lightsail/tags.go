@@ -10,9 +10,9 @@ import (
 	"context"
 
 	"github.com/aws/aws-sdk-go-v2/service/lightsail"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
-	"github.com/hashicorp/terraform-provider-aws/internal/types/option"
+	"github.com/hashicorp/terraform-provider-aws/exported/conns"
+	tftags "github.com/hashicorp/terraform-provider-aws/exported/tags"
+	"github.com/hashicorp/terraform-provider-aws/exported/types/option"
 )
 
 func (p *servicePackage) ListTags(ctx context.Context, meta any, identifier, resourceType string) error {

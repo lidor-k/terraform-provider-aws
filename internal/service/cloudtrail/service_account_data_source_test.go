@@ -7,8 +7,8 @@ import (
 	"testing"
 
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	tfcloudtrail "github.com/hashicorp/terraform-provider-aws/internal/service/cloudtrail"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
+	tfcloudtrail "github.com/hashicorp/terraform-provider-aws/exported/service/cloudtrail"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

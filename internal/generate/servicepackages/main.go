@@ -14,7 +14,7 @@ import (
 	"os"
 	"slices"
 
-	"github.com/hashicorp/terraform-provider-aws/internal/generate/common"
+	"github.com/hashicorp/terraform-provider-aws/exported/generate/common"
 	"github.com/hashicorp/terraform-provider-aws/names/data"
 )
 
@@ -44,7 +44,7 @@ func main() {
 	}
 
 	for _, l := range data {
-		// See internal/generate/namesconsts/main.go.
+		// See exported/generate/namesconsts/main.go.
 		p := l.ProviderPackage()
 
 		spdFile := fmt.Sprintf("../service/%s/service_package_gen.go", p)

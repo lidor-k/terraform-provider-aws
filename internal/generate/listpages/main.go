@@ -261,7 +261,7 @@ var functionTemplate string
 func (g *Generator) format() []byte {
 	src, err := format.Source(g.buf.Bytes())
 	if err != nil {
-		log.Printf("warning: internal error: invalid Go generated: %s", err)
+		log.Printf("warning: exported error: invalid Go generated: %s", err)
 		log.Printf("warning: compile the package to analyze the error")
 		return g.buf.Bytes()
 	}

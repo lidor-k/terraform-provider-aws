@@ -22,17 +22,17 @@ import ( // nosemgrep:ci.semgrep.aws.multiple-service-imports
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/retry"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	"github.com/hashicorp/terraform-provider-aws/internal/create"
-	"github.com/hashicorp/terraform-provider-aws/internal/enum"
-	"github.com/hashicorp/terraform-provider-aws/internal/errs"
-	"github.com/hashicorp/terraform-provider-aws/internal/errs/sdkdiag"
-	"github.com/hashicorp/terraform-provider-aws/internal/flex"
-	tfec2 "github.com/hashicorp/terraform-provider-aws/internal/service/ec2"
-	tfslices "github.com/hashicorp/terraform-provider-aws/internal/slices"
-	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
-	"github.com/hashicorp/terraform-provider-aws/internal/verify"
+	"github.com/hashicorp/terraform-provider-aws/exported/conns"
+	"github.com/hashicorp/terraform-provider-aws/exported/create"
+	"github.com/hashicorp/terraform-provider-aws/exported/enum"
+	"github.com/hashicorp/terraform-provider-aws/exported/errs"
+	"github.com/hashicorp/terraform-provider-aws/exported/errs/sdkdiag"
+	"github.com/hashicorp/terraform-provider-aws/exported/flex"
+	tfec2 "github.com/hashicorp/terraform-provider-aws/exported/service/ec2"
+	tfslices "github.com/hashicorp/terraform-provider-aws/exported/slices"
+	tftags "github.com/hashicorp/terraform-provider-aws/exported/tags"
+	"github.com/hashicorp/terraform-provider-aws/exported/tfresource"
+	"github.com/hashicorp/terraform-provider-aws/exported/verify"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -219,7 +219,7 @@ func resourceLoadBalancer() *schema.Resource {
 				Default:          60,
 				DiffSuppressFunc: suppressIfLBTypeNot(awstypes.LoadBalancerTypeEnumApplication),
 			},
-			"internal": {
+			"exported": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				ForceNew: true,
@@ -373,7 +373,7 @@ func resourceLoadBalancerCreate(ctx context.Context, d *schema.ResourceData, met
 		input.CustomerOwnedIpv4Pool = aws.String(v.(string))
 	}
 
-	if _, ok := d.GetOk("internal"); ok {
+	if _, ok := d.GetOk("exported"); ok {
 		input.Scheme = awstypes.LoadBalancerSchemeEnumInternal
 	}
 
@@ -510,7 +510,7 @@ func resourceLoadBalancerRead(ctx context.Context, d *schema.ResourceData, meta 
 	d.Set("customer_owned_ipv4_pool", lb.CustomerOwnedIpv4Pool)
 	d.Set(names.AttrDNSName, lb.DNSName)
 	d.Set("enforce_security_group_inbound_rules_on_private_link_traffic", lb.EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic)
-	d.Set("internal", lb.Scheme == awstypes.LoadBalancerSchemeEnumInternal)
+	d.Set("exported", lb.Scheme == awstypes.LoadBalancerSchemeEnumInternal)
 	d.Set(names.AttrIPAddressType, lb.IpAddressType)
 	d.Set("load_balancer_type", lb.Type)
 	d.Set(names.AttrName, lb.LoadBalancerName)

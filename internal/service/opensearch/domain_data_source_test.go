@@ -8,7 +8,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -81,7 +81,7 @@ func TestAccOpenSearchDomainDataSource_Data_advanced(t *testing.T) {
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttrPair(datasourceName, "advanced_security_options.#", resourceName, "advanced_security_options.#"),
 					resource.TestCheckResourceAttrPair(datasourceName, "advanced_security_options.0.enabled", resourceName, "advanced_security_options.0.enabled"),
-					resource.TestCheckResourceAttrPair(datasourceName, "advanced_security_options.0.internal_user_database_enabled", resourceName, "advanced_security_options.0.internal_user_database_enabled"),
+					resource.TestCheckResourceAttrPair(datasourceName, "advanced_security_options.0.exported_user_database_enabled", resourceName, "advanced_security_options.0.exported_user_database_enabled"),
 					resource.TestCheckResourceAttrPair(datasourceName, "auto_tune_options.#", resourceName, "auto_tune_options.#"),
 					resource.TestCheckResourceAttrPair(datasourceName, "auto_tune_options.0.desired_state", resourceName, "auto_tune_options.0.desired_state"),
 					resource.TestCheckResourceAttrPair(datasourceName, "auto_tune_options.0.maintenance_schedule", resourceName, "auto_tune_options.0.maintenance_schedule"),
@@ -319,7 +319,7 @@ POLICY
 
   advanced_security_options {
     enabled                        = false
-    internal_user_database_enabled = false
+    exported_user_database_enabled = false
   }
 
   tags = {

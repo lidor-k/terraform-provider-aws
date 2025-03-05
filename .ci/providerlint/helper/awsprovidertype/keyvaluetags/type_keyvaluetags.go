@@ -24,7 +24,7 @@ const (
 	TypeNameKeyValueTags = `KeyValueTags`
 )
 
-// IsTypeKeyValueTags returns if the type is KeyValueTags from the internal/keyvaluetags package
+// IsTypeKeyValueTags returns if the type is KeyValueTags from the exported/keyvaluetags package
 func IsTypeKeyValueTags(t types.Type) bool {
 	switch t := t.(type) {
 	case *types.Named:

@@ -5,7 +5,7 @@ package flex
 
 import (
 	"github.com/hashicorp/terraform-plugin-framework/diag"
-	"github.com/hashicorp/terraform-provider-aws/internal/errs/fwdiag"
+	"github.com/hashicorp/terraform-provider-aws/exported/errs/fwdiag"
 )
 
 // must panics if the provided Diagnostics has errors.

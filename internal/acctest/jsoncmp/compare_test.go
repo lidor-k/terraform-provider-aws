@@ -6,7 +6,7 @@ package jsoncmp_test
 import (
 	"testing"
 
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest/jsoncmp"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest/jsoncmp"
 )
 
 func TestDiff(t *testing.T) {

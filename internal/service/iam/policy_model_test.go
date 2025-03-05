@@ -8,9 +8,9 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/errs"
-	tfiam "github.com/hashicorp/terraform-provider-aws/internal/service/iam"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
+	"github.com/hashicorp/terraform-provider-aws/exported/errs"
+	tfiam "github.com/hashicorp/terraform-provider-aws/exported/service/iam"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

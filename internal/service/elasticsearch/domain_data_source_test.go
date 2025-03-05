@@ -8,7 +8,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -94,7 +94,7 @@ func TestAccElasticsearchDomainDataSource_advanced(t *testing.T) {
 					resource.TestCheckResourceAttrPair(datasourceName, "log_publishing_options.#", resourceName, "log_publishing_options.#"),
 					resource.TestCheckResourceAttrPair(datasourceName, "vpc_options.#", resourceName, "vpc_options.#"),
 					resource.TestCheckResourceAttrPair(datasourceName, "advanced_security_options.0.enabled", resourceName, "advanced_security_options.0.enabled"),
-					resource.TestCheckResourceAttrPair(datasourceName, "advanced_security_options.0.internal_user_database_enabled", resourceName, "advanced_security_options.0.internal_user_database_enabled"),
+					resource.TestCheckResourceAttrPair(datasourceName, "advanced_security_options.0.exported_user_database_enabled", resourceName, "advanced_security_options.0.exported_user_database_enabled"),
 				),
 			},
 		},
@@ -313,7 +313,7 @@ POLICY
 
   advanced_security_options {
     enabled                        = false
-    internal_user_database_enabled = false
+    exported_user_database_enabled = false
   }
 
   tags = {

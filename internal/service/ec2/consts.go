@@ -5,8 +5,8 @@ package ec2
 
 import (
 	awstypes "github.com/aws/aws-sdk-go-v2/service/ec2/types"
-	"github.com/hashicorp/terraform-provider-aws/internal/enum"
-	tfslices "github.com/hashicorp/terraform-provider-aws/internal/slices"
+	"github.com/hashicorp/terraform-provider-aws/exported/enum"
+	tfslices "github.com/hashicorp/terraform-provider-aws/exported/slices"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

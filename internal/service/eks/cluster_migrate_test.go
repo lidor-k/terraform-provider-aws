@@ -8,8 +8,8 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	tfeks "github.com/hashicorp/terraform-provider-aws/internal/service/eks"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
+	tfeks "github.com/hashicorp/terraform-provider-aws/exported/service/eks"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

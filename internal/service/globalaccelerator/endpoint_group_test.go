@@ -15,11 +15,11 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-testing/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfec2 "github.com/hashicorp/terraform-provider-aws/internal/service/ec2"
-	tfglobalaccelerator "github.com/hashicorp/terraform-provider-aws/internal/service/globalaccelerator"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
+	"github.com/hashicorp/terraform-provider-aws/exported/conns"
+	tfec2 "github.com/hashicorp/terraform-provider-aws/exported/service/ec2"
+	tfglobalaccelerator "github.com/hashicorp/terraform-provider-aws/exported/service/globalaccelerator"
+	"github.com/hashicorp/terraform-provider-aws/exported/tfresource"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -574,7 +574,7 @@ func testAccEndpointGroupConfig_baseALB(rName string) string {
 	return acctest.ConfigCompose(acctest.ConfigVPCWithSubnets(rName, 2), fmt.Sprintf(`
 resource "aws_lb" "test" {
   name            = %[1]q
-  internal        = false
+  exported        = false
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -964,7 +964,7 @@ resource "aws_lb" "alt_test" {
   provider = "awsalternate"
 
   name            = %[1]q
-  internal        = false
+  exported        = false
   security_groups = [aws_security_group.alt_test.id]
   subnets         = aws_subnet.alt_test[*].id
 

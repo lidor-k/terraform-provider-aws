@@ -16,10 +16,10 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-testing/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfelasticsearch "github.com/hashicorp/terraform-provider-aws/internal/service/elasticsearch"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
+	"github.com/hashicorp/terraform-provider-aws/exported/conns"
+	tfelasticsearch "github.com/hashicorp/terraform-provider-aws/exported/service/elasticsearch"
+	"github.com/hashicorp/terraform-provider-aws/exported/tfresource"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -640,7 +640,7 @@ func TestAccElasticsearchDomain_AdvancedSecurityOptions_userDB(t *testing.T) {
 				ImportStateVerify: true,
 				// MasterUserOptions are not returned from DescribeElasticsearchDomainConfig
 				ImportStateVerifyIgnore: []string{
-					"advanced_security_options.0.internal_user_database_enabled",
+					"advanced_security_options.0.exported_user_database_enabled",
 					"advanced_security_options.0.master_user_options",
 				},
 			},
@@ -678,7 +678,7 @@ func TestAccElasticsearchDomain_AdvancedSecurityOptions_iam(t *testing.T) {
 				ImportStateVerify: true,
 				// MasterUserOptions are not returned from DescribeElasticsearchDomainConfig
 				ImportStateVerifyIgnore: []string{
-					"advanced_security_options.0.internal_user_database_enabled",
+					"advanced_security_options.0.exported_user_database_enabled",
 					"advanced_security_options.0.master_user_options",
 				},
 			},
@@ -716,7 +716,7 @@ func TestAccElasticsearchDomain_AdvancedSecurityOptions_disabled(t *testing.T) {
 				ImportStateVerify: true,
 				// MasterUserOptions are not returned from DescribeElasticsearchDomainConfig
 				ImportStateVerifyIgnore: []string{
-					"advanced_security_options.0.internal_user_database_enabled",
+					"advanced_security_options.0.exported_user_database_enabled",
 					"advanced_security_options.0.master_user_options",
 				},
 			},
@@ -2843,7 +2843,7 @@ resource "aws_elasticsearch_domain" "test" {
 
   advanced_security_options {
     enabled                        = true
-    internal_user_database_enabled = true
+    exported_user_database_enabled = true
     master_user_options {
       master_user_name     = "testmasteruser"
       master_user_password = "Barbarbarbar1!"
@@ -2887,7 +2887,7 @@ resource "aws_elasticsearch_domain" "test" {
 
   advanced_security_options {
     enabled                        = true
-    internal_user_database_enabled = false
+    exported_user_database_enabled = false
     master_user_options {
       master_user_arn = aws_iam_user.test.arn
     }
@@ -2926,7 +2926,7 @@ resource "aws_elasticsearch_domain" "test" {
 
   advanced_security_options {
     enabled                        = false
-    internal_user_database_enabled = true
+    exported_user_database_enabled = true
     master_user_options {
       master_user_name     = "testmasteruser"
       master_user_password = "Barbarbarbar1!"
@@ -2990,7 +2990,7 @@ func testAccDomainConfig_logPublishingOptions(rName, logType string) string {
 		auditLogsConfig = `
 	  	advanced_security_options {
 			enabled                        = true
-			internal_user_database_enabled = true
+			exported_user_database_enabled = true
 			master_user_options {
 			  master_user_name     = "testmasteruser"
 			  master_user_password = "Barbarbarbar1!"

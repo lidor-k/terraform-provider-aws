@@ -12,7 +12,7 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/hashicorp/terraform-provider-aws/internal/generate/common"
+	"github.com/hashicorp/terraform-provider-aws/exported/generate/common"
 	"github.com/hashicorp/terraform-provider-aws/names/data"
 )
 
@@ -27,7 +27,7 @@ type TemplateData struct {
 
 func main() {
 	const (
-		filename = `../../../internal/provider/fwprovider/provider_gen.go`
+		filename = `../../../exported/provider/fwprovider/provider_gen.go`
 	)
 	g := common.NewGenerator()
 

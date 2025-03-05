@@ -12,11 +12,11 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-testing/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfsync "github.com/hashicorp/terraform-provider-aws/internal/experimental/sync"
-	tfec2 "github.com/hashicorp/terraform-provider-aws/internal/service/ec2"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
+	"github.com/hashicorp/terraform-provider-aws/exported/conns"
+	tfsync "github.com/hashicorp/terraform-provider-aws/exported/experimental/sync"
+	tfec2 "github.com/hashicorp/terraform-provider-aws/exported/service/ec2"
+	"github.com/hashicorp/terraform-provider-aws/exported/tfresource"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -378,7 +378,7 @@ resource "aws_network_interface" "test" {
 
 resource "aws_lb" "test" {
   name               = %[1]q
-  internal           = true
+  exported           = true
   load_balancer_type = "network"
   subnets            = aws_subnet.test[*].id
 }

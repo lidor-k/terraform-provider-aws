@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	tfappmesh "github.com/hashicorp/terraform-provider-aws/internal/service/appmesh"
+	tfappmesh "github.com/hashicorp/terraform-provider-aws/exported/service/appmesh"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

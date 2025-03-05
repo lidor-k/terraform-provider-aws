@@ -7,8 +7,8 @@ import (
 	"testing"
 
 	"github.com/aws/aws-sdk-go-v2/aws/arn"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	tfs3 "github.com/hashicorp/terraform-provider-aws/internal/service/s3"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
+	tfs3 "github.com/hashicorp/terraform-provider-aws/exported/service/s3"
 )
 
 func TestNewObjectARN_GeneralPurposeBucket(t *testing.T) {

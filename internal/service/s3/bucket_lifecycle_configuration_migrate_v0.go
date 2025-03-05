@@ -16,10 +16,10 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/int64default"
 	"github.com/hashicorp/terraform-plugin-framework/types"
-	"github.com/hashicorp/terraform-provider-aws/internal/framework"
-	fwflex "github.com/hashicorp/terraform-provider-aws/internal/framework/flex"
-	fwtypes "github.com/hashicorp/terraform-provider-aws/internal/framework/types"
-	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
+	"github.com/hashicorp/terraform-provider-aws/exported/framework"
+	fwflex "github.com/hashicorp/terraform-provider-aws/exported/framework/flex"
+	fwtypes "github.com/hashicorp/terraform-provider-aws/exported/framework/types"
+	tftags "github.com/hashicorp/terraform-provider-aws/exported/tags"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

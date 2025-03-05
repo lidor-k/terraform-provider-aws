@@ -14,11 +14,11 @@ import (
 	"github.com/hashicorp/aws-sdk-go-base/v2/endpoints"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	"github.com/hashicorp/terraform-provider-aws/internal/create"
-	"github.com/hashicorp/terraform-provider-aws/internal/errs"
-	tfservicequotas "github.com/hashicorp/terraform-provider-aws/internal/service/servicequotas"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
+	"github.com/hashicorp/terraform-provider-aws/exported/conns"
+	"github.com/hashicorp/terraform-provider-aws/exported/create"
+	"github.com/hashicorp/terraform-provider-aws/exported/errs"
+	tfservicequotas "github.com/hashicorp/terraform-provider-aws/exported/service/servicequotas"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

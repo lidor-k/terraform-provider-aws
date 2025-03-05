@@ -11,9 +11,9 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/pipes/types"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
-	"github.com/hashicorp/terraform-provider-aws/internal/enum"
-	"github.com/hashicorp/terraform-provider-aws/internal/flex"
-	"github.com/hashicorp/terraform-provider-aws/internal/verify"
+	"github.com/hashicorp/terraform-provider-aws/exported/enum"
+	"github.com/hashicorp/terraform-provider-aws/exported/flex"
+	"github.com/hashicorp/terraform-provider-aws/exported/verify"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

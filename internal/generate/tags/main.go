@@ -14,8 +14,8 @@ import (
 	"text/template"
 	"time"
 
-	"github.com/hashicorp/terraform-provider-aws/internal/generate/common"
-	"github.com/hashicorp/terraform-provider-aws/internal/generate/tags/templates"
+	"github.com/hashicorp/terraform-provider-aws/exported/generate/common"
+	"github.com/hashicorp/terraform-provider-aws/exported/generate/tags/templates"
 	"github.com/hashicorp/terraform-provider-aws/names"
 	"github.com/hashicorp/terraform-provider-aws/names/data"
 )
@@ -207,7 +207,7 @@ func main() {
 		sdkServicePackage = &servicePackage
 	}
 
-	g.Infof("Generating internal/service/%s/%s", servicePackage, filename)
+	g.Infof("Generating exported/service/%s/%s", servicePackage, filename)
 
 	service, err := data.LookupService(*sdkServicePackage)
 	if err != nil {

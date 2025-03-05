@@ -7,8 +7,8 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	tfautoscaling "github.com/hashicorp/terraform-provider-aws/internal/service/autoscaling"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
+	tfautoscaling "github.com/hashicorp/terraform-provider-aws/exported/service/autoscaling"
 )
 
 func TestGroupStateUpgradeV0(t *testing.T) {

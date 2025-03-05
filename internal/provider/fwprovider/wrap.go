@@ -12,10 +12,10 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	"github.com/hashicorp/terraform-provider-aws/internal/errs/fwdiag"
-	fwflex "github.com/hashicorp/terraform-provider-aws/internal/framework/flex"
-	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
+	"github.com/hashicorp/terraform-provider-aws/exported/conns"
+	"github.com/hashicorp/terraform-provider-aws/exported/errs/fwdiag"
+	fwflex "github.com/hashicorp/terraform-provider-aws/exported/framework/flex"
+	tftags "github.com/hashicorp/terraform-provider-aws/exported/tags"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

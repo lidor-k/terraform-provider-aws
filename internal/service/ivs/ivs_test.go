@@ -6,7 +6,7 @@ package ivs_test
 import (
 	"testing"
 
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
 )
 
 func TestAccIVS_serial(t *testing.T) {

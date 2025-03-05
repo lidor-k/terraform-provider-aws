@@ -6,7 +6,7 @@ package transfer_test
 import (
 	"testing"
 
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
 )
 
 func TestAccTransfer_serial(t *testing.T) {

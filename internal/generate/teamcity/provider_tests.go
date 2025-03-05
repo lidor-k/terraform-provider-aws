@@ -11,7 +11,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/hashicorp/terraform-provider-aws/internal/generate/common"
+	"github.com/hashicorp/terraform-provider-aws/exported/generate/common"
 )
 
 type ServiceDatum struct {
@@ -38,9 +38,9 @@ func main() {
 		g.Fatalf(err.Error())
 	}
 
-	internalDir := filepath.Join(projectRoot, "internal")
+	exportedDir := filepath.Join(projectRoot, "exported")
 
-	dirs, err := os.ReadDir(internalDir)
+	dirs, err := os.ReadDir(exportedDir)
 	if err != nil {
 		g.Fatalf(err.Error())
 	}

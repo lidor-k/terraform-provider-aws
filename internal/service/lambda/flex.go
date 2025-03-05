@@ -6,8 +6,8 @@ package lambda
 import (
 	"github.com/aws/aws-sdk-go-v2/aws"
 	awstypes "github.com/aws/aws-sdk-go-v2/service/lambda/types"
-	"github.com/hashicorp/terraform-provider-aws/internal/flex"
-	tfslices "github.com/hashicorp/terraform-provider-aws/internal/slices"
+	"github.com/hashicorp/terraform-provider-aws/exported/flex"
+	tfslices "github.com/hashicorp/terraform-provider-aws/exported/slices"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

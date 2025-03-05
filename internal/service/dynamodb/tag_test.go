@@ -9,8 +9,8 @@ import (
 
 	sdkacctest "github.com/hashicorp/terraform-plugin-testing/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	tfdynamodb "github.com/hashicorp/terraform-provider-aws/internal/service/dynamodb"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
+	tfdynamodb "github.com/hashicorp/terraform-provider-aws/exported/service/dynamodb"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

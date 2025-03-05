@@ -14,8 +14,8 @@ import (
 	"strings"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/hashicorp/terraform-provider-aws/internal/generate/common"
-	"github.com/hashicorp/terraform-provider-aws/internal/provider"
+	"github.com/hashicorp/terraform-provider-aws/exported/generate/common"
+	"github.com/hashicorp/terraform-provider-aws/exported/provider"
 	"github.com/hashicorp/terraform-provider-aws/tools/tfsdk2fw/naming"
 	"golang.org/x/exp/slices"
 )
@@ -733,7 +733,7 @@ func (e *emitter) emitBlockProperty(path []string, property *schema.Schema) erro
 
 // emitComputedOnlyBlock generates the Plugin Framework code for a Plugin SDK Computed-only nested block
 // and emits the generated code to the emitter's Writer.
-// See https://github.com/hashicorp/terraform-plugin-sdk/blob/6ffc92796f0716c07502e4d36aaafa5fd85e94cf/internal/configs/configschema/implied_type.go#L12.
+// See https://github.com/hashicorp/terraform-plugin-sdk/blob/6ffc92796f0716c07502e4d36aaafa5fd85e94cf/exported/configs/configschema/implied_type.go#L12.
 // Property names are sorted prior to code generation to reduce diffs.
 func (e *emitter) emitComputedOnlyBlock(path []string, schema map[string]*schema.Schema) error {
 	names := make([]string, 0)
@@ -773,7 +773,7 @@ func (e *emitter) emitComputedOnlyBlock(path []string, schema map[string]*schema
 
 // emitComputedOnlyBlockProperty generates the Plugin Framework code for a Plugin SDK Computed-only nested block's property
 // and emits the generated code to the emitter's Writer.
-// See https://github.com/hashicorp/terraform-plugin-sdk/blob/6ffc92796f0716c07502e4d36aaafa5fd85e94cf/internal/configs/configschema/implied_type.go#L12.
+// See https://github.com/hashicorp/terraform-plugin-sdk/blob/6ffc92796f0716c07502e4d36aaafa5fd85e94cf/exported/configs/configschema/implied_type.go#L12.
 func (e *emitter) emitComputedOnlyBlockProperty(path []string, property *schema.Schema) error {
 	// At this point we are emitting code for the values of a types.ObjectType's AttrMap (map[string]attr.Type).
 	switch v := property.Type; v {

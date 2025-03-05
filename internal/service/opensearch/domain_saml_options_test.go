@@ -12,10 +12,10 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-testing/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfopensearch "github.com/hashicorp/terraform-provider-aws/internal/service/opensearch"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
+	"github.com/hashicorp/terraform-provider-aws/exported/conns"
+	tfopensearch "github.com/hashicorp/terraform-provider-aws/exported/service/opensearch"
+	"github.com/hashicorp/terraform-provider-aws/exported/tfresource"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -244,7 +244,7 @@ resource "aws_opensearch_domain" "test" {
   # Advanced security option must be enabled to configure SAML.
   advanced_security_options {
     enabled                        = true
-    internal_user_database_enabled = false
+    exported_user_database_enabled = false
     master_user_options {
       master_user_arn = aws_iam_user.test.arn
     }
@@ -301,7 +301,7 @@ resource "aws_opensearch_domain" "test" {
   # Advanced security option must be enabled to configure SAML.
   advanced_security_options {
     enabled                        = true
-    internal_user_database_enabled = false
+    exported_user_database_enabled = false
     master_user_options {
       master_user_arn = aws_iam_user.test.arn
     }
@@ -359,7 +359,7 @@ resource "aws_opensearch_domain" "test" {
   # Advanced security option must be enabled to configure SAML.
   advanced_security_options {
     enabled                        = true
-    internal_user_database_enabled = false
+    exported_user_database_enabled = false
     master_user_options {
       master_user_arn = aws_iam_user.test.arn
     }

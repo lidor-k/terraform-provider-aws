@@ -18,10 +18,10 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-testing/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfelbv2 "github.com/hashicorp/terraform-provider-aws/internal/service/elbv2"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
+	"github.com/hashicorp/terraform-provider-aws/exported/conns"
+	tfelbv2 "github.com/hashicorp/terraform-provider-aws/exported/service/elbv2"
+	"github.com/hashicorp/terraform-provider-aws/exported/tfresource"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -2210,7 +2210,7 @@ resource "aws_security_group" "test" {
 
 resource "aws_lb" "test" {
   name            = %[1]q
-  internal        = true
+  exported        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -2410,7 +2410,7 @@ resource "aws_lb_listener" "front_end" {
 
 resource "aws_lb" "alb_test" {
   name            = %[1]q
-  internal        = true
+  exported        = true
   security_groups = [aws_security_group.alb_test.id]
   subnets         = aws_subnet.alb_test[*].id
 
@@ -2565,7 +2565,7 @@ resource "aws_lb_listener" "front_end" {
 
 resource "aws_lb" "alb_test" {
   name            = %[1]q
-  internal        = true
+  exported        = true
   security_groups = [aws_security_group.alb_test.id]
   subnets         = aws_subnet.alb_test[*].id
 
@@ -2910,7 +2910,7 @@ resource "aws_lb_listener" "front_end" {
 
 resource "aws_lb" "alb_test" {
   name            = %[1]q
-  internal        = true
+  exported        = true
   security_groups = [aws_security_group.alb_test.id]
   subnets         = aws_subnet.alb_test[*].id
 
@@ -3051,7 +3051,7 @@ resource "aws_alb_listener" "front_end" {
 
 resource "aws_alb" "alb_test" {
   name            = %[1]q
-  internal        = true
+  exported        = true
   security_groups = [aws_security_group.alb_test.id]
   subnets         = aws_subnet.alb_test[*].id
 
@@ -3187,7 +3187,7 @@ resource "aws_lb_listener" "front_end" {
 
 resource "aws_lb" "alb_test" {
   name            = %[1]q
-  internal        = true
+  exported        = true
   security_groups = [aws_security_group.alb_test.id]
   subnets         = aws_subnet.alb_test[*].id
 
@@ -3300,7 +3300,7 @@ resource "aws_lb_listener" "front_end" {
 
 resource "aws_lb" "alb_test" {
   name            = %[2]q
-  internal        = true
+  exported        = true
   security_groups = [aws_security_group.alb_test.id]
   subnets         = aws_subnet.alb_test[*].id
 
@@ -3846,7 +3846,7 @@ resource "aws_lb_listener" "test" {
 }
 
 resource "aws_lb" "test" {
-  internal        = true
+  exported        = true
   name            = %[1]q
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
@@ -3981,7 +3981,7 @@ resource "aws_lb_listener" "test" {
 }
 
 resource "aws_lb" "test" {
-  internal        = true
+  exported        = true
   name            = %[1]q
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
@@ -4089,7 +4089,7 @@ resource "aws_lb_listener" "test" {
 }
 
 resource "aws_lb" "test" {
-  internal        = true
+  exported        = true
   name            = %[1]q
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
@@ -4200,7 +4200,7 @@ resource "aws_lb_listener" "front_end" {
 
 resource "aws_lb" "alb_test" {
   name            = %[1]q
-  internal        = true
+  exported        = true
   security_groups = [aws_security_group.alb_test.id]
   subnets         = aws_subnet.alb_test[*].id
 
@@ -4406,7 +4406,7 @@ resource "aws_lb_listener" "front_end" {
 
 resource "aws_lb" "alb_test" {
   name            = %[2]q
-  internal        = true
+  exported        = true
   security_groups = [aws_security_group.alb_test.id]
   subnets         = aws_subnet.alb_test[*].id
 

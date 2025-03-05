@@ -10,8 +10,8 @@ import (
 	awstypes "github.com/aws/aws-sdk-go-v2/service/opensearch/types"
 	sdkacctest "github.com/hashicorp/terraform-plugin-testing/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	tfopensearch "github.com/hashicorp/terraform-provider-aws/internal/service/opensearch"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
+	tfopensearch "github.com/hashicorp/terraform-provider-aws/exported/service/opensearch"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -93,7 +93,7 @@ resource "aws_opensearch_domain" "domain_1" {
 
   advanced_security_options {
     enabled                        = true
-    internal_user_database_enabled = true
+    exported_user_database_enabled = true
 
     master_user_options {
       master_user_name     = "test"
@@ -129,7 +129,7 @@ resource "aws_opensearch_domain" "domain_2" {
 
   advanced_security_options {
     enabled                        = true
-    internal_user_database_enabled = true
+    exported_user_database_enabled = true
 
     master_user_options {
       master_user_name     = "test"

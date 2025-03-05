@@ -6,8 +6,8 @@ package dms_test
 import (
 	"testing"
 
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	tfdms "github.com/hashicorp/terraform-provider-aws/internal/service/dms"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
+	tfdms "github.com/hashicorp/terraform-provider-aws/exported/service/dms"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

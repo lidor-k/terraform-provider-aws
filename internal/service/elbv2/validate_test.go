@@ -29,7 +29,7 @@ func TestValidName(t *testing.T) {
 		"tf-test-elb-tf-test-elb-tf-test-elb",
 		"-tf-test-elb",
 		"tf-test-elb-",
-		"internal-tf-test-elb",
+		"exported-tf-test-elb",
 	}
 
 	for _, s := range invalidNames {
@@ -58,7 +58,7 @@ func TestValidNamePrefix(t *testing.T) {
 		"tf.test.elb.",
 		"tf-test",
 		"-test",
-		"internal-",
+		"exported-",
 	}
 
 	for _, s := range invalidNamePrefixes {

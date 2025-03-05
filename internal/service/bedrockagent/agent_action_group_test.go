@@ -16,12 +16,12 @@ import (
 	"github.com/hashicorp/terraform-plugin-testing/statecheck"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
 	"github.com/hashicorp/terraform-plugin-testing/tfjsonpath"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	tfplancheck "github.com/hashicorp/terraform-provider-aws/internal/acctest/plancheck"
-	tfstatecheck "github.com/hashicorp/terraform-provider-aws/internal/acctest/statecheck"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfbedrockagent "github.com/hashicorp/terraform-provider-aws/internal/service/bedrockagent"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
+	tfplancheck "github.com/hashicorp/terraform-provider-aws/exported/acctest/plancheck"
+	tfstatecheck "github.com/hashicorp/terraform-provider-aws/exported/acctest/statecheck"
+	"github.com/hashicorp/terraform-provider-aws/exported/conns"
+	tfbedrockagent "github.com/hashicorp/terraform-provider-aws/exported/service/bedrockagent"
+	"github.com/hashicorp/terraform-provider-aws/exported/tfresource"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

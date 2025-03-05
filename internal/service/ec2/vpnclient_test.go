@@ -6,8 +6,8 @@ package ec2_test
 import (
 	"testing"
 
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	tfsync "github.com/hashicorp/terraform-provider-aws/internal/experimental/sync"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
+	tfsync "github.com/hashicorp/terraform-provider-aws/exported/experimental/sync"
 )
 
 // This is part of an experimental feature, do not use this as a starting point for tests

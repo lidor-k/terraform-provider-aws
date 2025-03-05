@@ -24,15 +24,15 @@ import ( // nosemgrep:ci.semgrep.aws.multiple-service-imports
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/retry"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	"github.com/hashicorp/terraform-provider-aws/internal/create"
-	"github.com/hashicorp/terraform-provider-aws/internal/errs"
-	"github.com/hashicorp/terraform-provider-aws/internal/errs/sdkdiag"
-	"github.com/hashicorp/terraform-provider-aws/internal/flex"
-	tfec2 "github.com/hashicorp/terraform-provider-aws/internal/service/ec2"
-	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
-	"github.com/hashicorp/terraform-provider-aws/internal/verify"
+	"github.com/hashicorp/terraform-provider-aws/exported/conns"
+	"github.com/hashicorp/terraform-provider-aws/exported/create"
+	"github.com/hashicorp/terraform-provider-aws/exported/errs"
+	"github.com/hashicorp/terraform-provider-aws/exported/errs/sdkdiag"
+	"github.com/hashicorp/terraform-provider-aws/exported/flex"
+	tfec2 "github.com/hashicorp/terraform-provider-aws/exported/service/ec2"
+	tftags "github.com/hashicorp/terraform-provider-aws/exported/tags"
+	"github.com/hashicorp/terraform-provider-aws/exported/tfresource"
+	"github.com/hashicorp/terraform-provider-aws/exported/verify"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -181,7 +181,7 @@ func resourceLoadBalancer() *schema.Resource {
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"internal": {
+			"exported": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				ForceNew: true,
@@ -292,8 +292,8 @@ func resourceLoadBalancerCreate(ctx context.Context, d *schema.ResourceData, met
 		input.AvailabilityZones = flex.ExpandStringValueSet(v.(*schema.Set))
 	}
 
-	if _, ok := d.GetOk("internal"); ok {
-		input.Scheme = aws.String("internal")
+	if _, ok := d.GetOk("exported"); ok {
+		input.Scheme = aws.String("exported")
 	}
 
 	if v, ok := d.GetOk(names.AttrSecurityGroups); ok && v.(*schema.Set).Len() > 0 {
@@ -358,9 +358,9 @@ func resourceLoadBalancerRead(ctx context.Context, d *schema.ResourceData, meta 
 	d.Set("instances", flattenInstances(lb.Instances))
 	var scheme bool
 	if lb.Scheme != nil {
-		scheme = aws.ToString(lb.Scheme) == "internal"
+		scheme = aws.ToString(lb.Scheme) == "exported"
 	}
-	d.Set("internal", scheme)
+	d.Set("exported", scheme)
 	d.Set("listener", flattenListenerDescriptions(lb.ListenerDescriptions))
 	d.Set(names.AttrName, lb.LoadBalancerName)
 	d.Set(names.AttrNamePrefix, create.NamePrefixFromName(aws.ToString(lb.LoadBalancerName)))

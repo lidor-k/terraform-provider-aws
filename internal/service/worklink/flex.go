@@ -6,7 +6,7 @@ package worklink
 import (
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/service/worklink"
-	"github.com/hashicorp/terraform-provider-aws/internal/flex"
+	"github.com/hashicorp/terraform-provider-aws/exported/flex"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

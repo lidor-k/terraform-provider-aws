@@ -6,7 +6,7 @@ package bedrockagent_test
 import (
 	"testing"
 
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
 )
 
 func TestAccBedrockAgent_serial(t *testing.T) {

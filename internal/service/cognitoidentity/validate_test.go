@@ -8,7 +8,7 @@ import (
 	"testing"
 
 	awstypes "github.com/aws/aws-sdk-go-v2/service/cognitoidentity/types"
-	tfcognitoidentity "github.com/hashicorp/terraform-provider-aws/internal/service/cognitoidentity"
+	tfcognitoidentity "github.com/hashicorp/terraform-provider-aws/exported/service/cognitoidentity"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

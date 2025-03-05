@@ -8,7 +8,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/terraform-plugin-framework/attr/xattr"
-	fwtypes "github.com/hashicorp/terraform-provider-aws/internal/framework/types"
+	fwtypes "github.com/hashicorp/terraform-provider-aws/exported/framework/types"
 )
 
 func TestIAMPolicyValidateAttribute(t *testing.T) {

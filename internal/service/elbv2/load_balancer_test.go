@@ -18,10 +18,10 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-testing/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfelbv2 "github.com/hashicorp/terraform-provider-aws/internal/service/elbv2"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
+	"github.com/hashicorp/terraform-provider-aws/exported/conns"
+	tfelbv2 "github.com/hashicorp/terraform-provider-aws/exported/service/elbv2"
+	"github.com/hashicorp/terraform-provider-aws/exported/tfresource"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -99,7 +99,7 @@ func TestAccELBV2LoadBalancer_ALB_basic(t *testing.T) {
 					resource.TestCheckResourceAttr(resourceName, "enable_zonal_shift", acctest.CtFalse),
 					resource.TestCheckResourceAttrPair(resourceName, names.AttrID, resourceName, names.AttrARN),
 					resource.TestCheckResourceAttr(resourceName, "idle_timeout", "30"),
-					resource.TestCheckResourceAttr(resourceName, "internal", acctest.CtTrue),
+					resource.TestCheckResourceAttr(resourceName, "exported", acctest.CtTrue),
 					resource.TestCheckResourceAttr(resourceName, names.AttrIPAddressType, "ipv4"),
 					resource.TestCheckResourceAttr(resourceName, "load_balancer_type", "application"),
 					resource.TestCheckResourceAttr(resourceName, names.AttrName, rName),
@@ -141,7 +141,7 @@ func TestAccELBV2LoadBalancer_NLB_basic(t *testing.T) {
 					resource.TestCheckResourceAttr(resourceName, "enable_deletion_protection", acctest.CtFalse),
 					resource.TestCheckResourceAttr(resourceName, "enable_zonal_shift", acctest.CtFalse),
 					resource.TestCheckResourceAttrPair(resourceName, names.AttrID, resourceName, names.AttrARN),
-					resource.TestCheckResourceAttr(resourceName, "internal", acctest.CtTrue),
+					resource.TestCheckResourceAttr(resourceName, "exported", acctest.CtTrue),
 					resource.TestCheckResourceAttr(resourceName, names.AttrIPAddressType, "ipv4"),
 					resource.TestCheckResourceAttr(resourceName, "load_balancer_type", "network"),
 					resource.TestCheckResourceAttr(resourceName, names.AttrName, rName),
@@ -480,7 +480,7 @@ func TestAccELBV2LoadBalancer_networkLoadBalancerEIP(t *testing.T) {
 				Check: resource.ComposeAggregateTestCheckFunc(
 					testAccCheckLoadBalancerExists(ctx, resourceName, &conf),
 					resource.TestCheckResourceAttr(resourceName, names.AttrName, rName),
-					resource.TestCheckResourceAttr(resourceName, "internal", acctest.CtFalse),
+					resource.TestCheckResourceAttr(resourceName, "exported", acctest.CtFalse),
 					resource.TestCheckResourceAttr(resourceName, names.AttrIPAddressType, "ipv4"),
 					resource.TestCheckResourceAttrSet(resourceName, "zone_id"),
 					resource.TestCheckResourceAttrSet(resourceName, names.AttrDNSName),
@@ -516,7 +516,7 @@ func TestAccELBV2LoadBalancer_NLB_privateIPv4Address(t *testing.T) {
 				Config: testAccLoadBalancerConfig_nlbPrivateIPV4Address(rName),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					testAccCheckLoadBalancerExists(ctx, resourceName, &conf),
-					resource.TestCheckResourceAttr(resourceName, "internal", acctest.CtTrue),
+					resource.TestCheckResourceAttr(resourceName, "exported", acctest.CtTrue),
 					resource.TestCheckResourceAttr(resourceName, "load_balancer_type", "network"),
 					resource.TestCheckResourceAttr(resourceName, "subnet_mapping.#", "1"),
 				),
@@ -548,7 +548,7 @@ func TestAccELBV2LoadBalancer_backwardsCompatibility(t *testing.T) {
 				Check: resource.ComposeAggregateTestCheckFunc(
 					testAccCheckLoadBalancerExists(ctx, resourceName, &conf),
 					resource.TestCheckResourceAttr(resourceName, names.AttrName, rName),
-					resource.TestCheckResourceAttr(resourceName, "internal", acctest.CtTrue),
+					resource.TestCheckResourceAttr(resourceName, "exported", acctest.CtTrue),
 					resource.TestCheckResourceAttr(resourceName, "subnets.#", "2"),
 					resource.TestCheckResourceAttr(resourceName, "security_groups.#", "1"),
 					resource.TestCheckResourceAttr(resourceName, acctest.CtTagsPercent, "1"),
@@ -1189,7 +1189,7 @@ func TestAccELBV2LoadBalancer_ApplicationLoadBalancer_noSecurityGroup(t *testing
 				Check: resource.ComposeAggregateTestCheckFunc(
 					testAccCheckLoadBalancerExists(ctx, resourceName, &conf),
 					resource.TestCheckResourceAttr(resourceName, names.AttrName, rName),
-					resource.TestCheckResourceAttr(resourceName, "internal", acctest.CtTrue),
+					resource.TestCheckResourceAttr(resourceName, "exported", acctest.CtTrue),
 					resource.TestCheckResourceAttr(resourceName, "subnets.#", "2"),
 					resource.TestCheckResourceAttr(resourceName, "security_groups.#", "1"),
 					resource.TestCheckResourceAttr(resourceName, "enable_deletion_protection", acctest.CtFalse),
@@ -2264,7 +2264,7 @@ func testAccLoadBalancerConfig_subnetCount(rName string, nSubnets, nSubnetsRefer
 	return acctest.ConfigCompose(testAccLoadBalancerConfig_baseInternal(rName, nSubnets), fmt.Sprintf(`
 resource "aws_lb" "test" {
   name            = %[1]q
-  internal        = true
+  exported        = true
   security_groups = [aws_security_group.test.id]
   subnets         = slice(aws_subnet.test[*].id, 0, %[2]d)
 
@@ -2278,7 +2278,7 @@ func testAccLoadBalancerConfig_subnetMappingCount(rName string, subnetCount int)
 	return acctest.ConfigCompose(testAccLoadBalancerConfig_baseInternal(rName, subnetCount), fmt.Sprintf(`
 resource "aws_lb" "test" {
   name            = %[1]q
-  internal        = true
+  exported        = true
   security_groups = [aws_security_group.test.id]
 
   idle_timeout               = 30
@@ -2301,7 +2301,7 @@ resource "aws_lb" "test" {
 func testAccLoadBalancerConfig_nameGenerated(rName string) string {
 	return acctest.ConfigCompose(testAccLoadBalancerConfig_baseInternal(rName, 2), fmt.Sprintf(`
 resource "aws_lb" "test" {
-  internal        = true
+  exported        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -2319,7 +2319,7 @@ func testAccLoadBalancerConfig_zeroValueName(rName string) string {
 	return acctest.ConfigCompose(testAccLoadBalancerConfig_baseInternal(rName, 2), fmt.Sprintf(`
 resource "aws_lb" "test" {
   name            = ""
-  internal        = true
+  exported        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -2342,7 +2342,7 @@ func testAccLoadBalancerConfig_namePrefix(rName, namePrefix string) string {
 	return acctest.ConfigCompose(testAccLoadBalancerConfig_baseInternal(rName, 2), fmt.Sprintf(`
 resource "aws_lb" "test" {
   name_prefix     = %[2]q
-  internal        = true
+  exported        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -2360,7 +2360,7 @@ func testAccLoadBalancerConfig_duplicateName(rName string) string {
 	return acctest.ConfigCompose(testAccLoadBalancerConfig_basic(rName), fmt.Sprintf(`
 resource "aws_lb" "test2" {
   name            = %[1]q
-  internal        = true
+  exported        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -2520,7 +2520,7 @@ func testAccLoadBalancerConfig_enableHTTP2(rName string, http2 bool) string {
 	return acctest.ConfigCompose(testAccLoadBalancerConfig_baseInternal(rName, 2), fmt.Sprintf(`
 resource "aws_lb" "test" {
   name            = %[1]q
-  internal        = true
+  exported        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -2540,7 +2540,7 @@ func testAccLoadBalancerConfig_clientKeepAlive(rName string, value int64) string
 	return acctest.ConfigCompose(testAccLoadBalancerConfig_baseInternal(rName, 2), fmt.Sprintf(`
 resource "aws_lb" "test" {
   name            = %[1]q
-  internal        = true
+  exported        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -2561,7 +2561,7 @@ func testAccLoadBalancerConfig_enableDropInvalidHeaderFields(rName string, dropI
 	return acctest.ConfigCompose(testAccLoadBalancerConfig_baseInternal(rName, 2), fmt.Sprintf(`
 resource "aws_lb" "test" {
   name            = %[1]q
-  internal        = true
+  exported        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -2581,7 +2581,7 @@ func testAccLoadBalancerConfig_enablePreserveHostHeader(rName string, enablePres
 	return acctest.ConfigCompose(testAccLoadBalancerConfig_baseInternal(rName, 2), fmt.Sprintf(`
 resource "aws_lb" "test" {
   name            = %[1]q
-  internal        = true
+  exported        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -2601,7 +2601,7 @@ func testAccLoadBalancerConfig_enableDeletionProtection(rName string, deletionPr
 	return acctest.ConfigCompose(testAccLoadBalancerConfig_baseInternal(rName, 2), fmt.Sprintf(`
 resource "aws_lb" "test" {
   name            = %[1]q
-  internal        = true
+  exported        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -2619,7 +2619,7 @@ func testAccLoadBalancerConfig_enableWAFFailOpen(rName string, wafFailOpen bool)
 	return acctest.ConfigCompose(testAccLoadBalancerConfig_baseInternal(rName, 2), fmt.Sprintf(`
 resource "aws_lb" "test" {
   name            = %[1]q
-  internal        = true
+  exported        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -2651,7 +2651,7 @@ func testAccLoadBalancerConfig_nlbSubnetMappingCount(rName string, cz, zs bool, 
 	return acctest.ConfigCompose(acctest.ConfigVPCWithSubnets(rName, subnetCount), fmt.Sprintf(`
 resource "aws_lb" "test" {
   name               = %[1]q
-  internal           = true
+  exported           = true
   load_balancer_type = "network"
 
   enable_deletion_protection       = false
@@ -2788,7 +2788,7 @@ func testAccLoadBalancerConfig_nlbPrivateIPV4Address(rName string) string {
 	return acctest.ConfigCompose(acctest.ConfigAvailableAZsNoOptIn(), fmt.Sprintf(`
 resource "aws_lb" "test" {
   name                       = %[1]q
-  internal                   = true
+  exported                   = true
   load_balancer_type         = "network"
   enable_deletion_protection = false
 
@@ -2828,7 +2828,7 @@ func testAccLoadBalancerConfig_nlbDNSRecordClientRoutingPolicyAffinity(rName str
 resource "aws_lb" "test" {
   name                             = %[1]q
   dns_record_client_routing_policy = "availability_zone_affinity"
-  internal                         = true
+  exported                         = true
   load_balancer_type               = "network"
 
   subnet_mapping {
@@ -2847,7 +2847,7 @@ func testAccLoadBalancerConfig_nlbDNSRecordClientRoutingPolicyAnyAvailabilityZon
 resource "aws_lb" "test" {
   name                             = %[1]q
   dns_record_client_routing_policy = "any_availability_zone"
-  internal                         = true
+  exported                         = true
   load_balancer_type               = "network"
 
   subnet_mapping {
@@ -2866,7 +2866,7 @@ func testAccLoadBalancerConfig_nlbDNSRecordClientRoutingPolicyPartialAffinity(rN
 resource "aws_lb" "test" {
   name                             = %[1]q
   dns_record_client_routing_policy = "partial_availability_zone_affinity"
-  internal                         = true
+  exported                         = true
   load_balancer_type               = "network"
 
   subnet_mapping {
@@ -2884,7 +2884,7 @@ func testAccLoadBalancerConfig_backwardsCompatibility(rName string) string {
 	return acctest.ConfigCompose(testAccLoadBalancerConfig_baseInternal(rName, 2), fmt.Sprintf(`
 resource "aws_alb" "test" {
   name            = %[1]q
-  internal        = true
+  exported        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -2902,7 +2902,7 @@ func testAccLoadBalancerConfig_albUpdateSecurityGroups(rName string) string {
 	return acctest.ConfigCompose(testAccLoadBalancerConfig_baseInternal(rName, 3), fmt.Sprintf(`
 resource "aws_lb" "test" {
   name            = %[1]q
-  internal        = true
+  exported        = true
   security_groups = [aws_security_group.test.id, aws_security_group.test2.id]
   subnets         = aws_subnet.test[*].id
 
@@ -2932,7 +2932,7 @@ func testAccLoadBalancerConfig_albNoSecurityGroups(rName string) string {
 	return acctest.ConfigCompose(acctest.ConfigVPCWithSubnets(rName, 2), fmt.Sprintf(`
 resource "aws_lb" "test" {
   name     = %[1]q
-  internal = true
+  exported = true
   subnets  = aws_subnet.test[*].id
 
   idle_timeout               = 30
@@ -2973,7 +2973,7 @@ resource "aws_s3_bucket_policy" "test" {
 func testAccLoadBalancerConfig_albAccessLogs(enabled bool, rName, bucketPrefix string) string {
 	return acctest.ConfigCompose(testAccLoadBalancerConfig_baseALBAccessLogs(rName), fmt.Sprintf(`
 resource "aws_lb" "test" {
-  internal = true
+  exported = true
   name     = %[1]q
   subnets  = aws_subnet.test[*].id
 
@@ -2989,7 +2989,7 @@ resource "aws_lb" "test" {
 func testAccLoadBalancerConfig_albAccessLogsNoBlocks(rName string) string {
 	return acctest.ConfigCompose(testAccLoadBalancerConfig_baseALBAccessLogs(rName), fmt.Sprintf(`
 resource "aws_lb" "test" {
-  internal = true
+  exported = true
   name     = %[1]q
   subnets  = aws_subnet.test[*].id
 }
@@ -2999,7 +2999,7 @@ resource "aws_lb" "test" {
 func testAccLoadBalancerConfig_albConnectionLogs(enabled bool, rName, bucketPrefix string) string {
 	return acctest.ConfigCompose(testAccLoadBalancerConfig_baseALBAccessLogs(rName), fmt.Sprintf(`
 resource "aws_lb" "test" {
-  internal = true
+  exported = true
   name     = %[1]q
   subnets  = aws_subnet.test[*].id
 
@@ -3015,7 +3015,7 @@ resource "aws_lb" "test" {
 func testAccLoadBalancerConfig_albConnectionLogsNoBlocks(rName string) string {
 	return acctest.ConfigCompose(testAccLoadBalancerConfig_baseALBAccessLogs(rName), fmt.Sprintf(`
 resource "aws_lb" "test" {
-  internal = true
+  exported = true
   name     = %[1]q
   subnets  = aws_subnet.test[*].id
 }
@@ -3063,7 +3063,7 @@ resource "aws_s3_bucket_policy" "test" {
 func testAccLoadBalancerConfig_nlbAccessLogs(enabled bool, rName, bucketPrefix string) string {
 	return acctest.ConfigCompose(testAccLoadBalancerConfig_baseNLBAccessLogs(rName), fmt.Sprintf(`
 resource "aws_lb" "test" {
-  internal           = true
+  exported           = true
   load_balancer_type = "network"
   name               = %[1]q
   subnets            = aws_subnet.test[*].id
@@ -3080,7 +3080,7 @@ resource "aws_lb" "test" {
 func testAccLoadBalancerConfig_nlbAccessLogsNoBlocks(rName string) string {
 	return acctest.ConfigCompose(testAccLoadBalancerConfig_baseNLBAccessLogs(rName), fmt.Sprintf(`
 resource "aws_lb" "test" {
-  internal           = true
+  exported           = true
   load_balancer_type = "network"
   name               = %[1]q
   subnets            = aws_subnet.test[*].id
@@ -3116,7 +3116,7 @@ resource "aws_security_group" "test" {
 }
 
 resource "aws_lb" "test" {
-  internal           = true
+  exported           = true
   load_balancer_type = "network"
   name               = %[1]q
   subnets            = aws_subnet.test[*].id
@@ -3153,7 +3153,7 @@ resource "aws_security_group" "test" {
 }
 
 resource "aws_lb" "test" {
-  internal           = true
+  exported           = true
   load_balancer_type = "network"
   name               = %[1]q
   subnets            = aws_subnet.test[*].id
@@ -3172,7 +3172,7 @@ resource "aws_lb" "test" {
   subnets = aws_subnet.test[*].id
 
   load_balancer_type               = "network"
-  internal                         = true
+  exported                         = true
   idle_timeout                     = 60
   enable_deletion_protection       = false
   enable_cross_zone_load_balancing = false
@@ -3184,7 +3184,7 @@ func testAccLoadBalancerConfig_desyncMitigationMode(rName, mode string) string {
 	return acctest.ConfigCompose(testAccLoadBalancerConfig_baseInternal(rName, 2), fmt.Sprintf(`
 resource "aws_lb" "test" {
   name            = %[1]q
-  internal        = true
+  exported        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -3200,7 +3200,7 @@ func testAccLoadBalancerConfig_tlscipherSuiteEnabled(rName string, enabled bool)
 	return acctest.ConfigCompose(testAccLoadBalancerConfig_baseInternal(rName, 2), fmt.Sprintf(`
 resource "aws_lb" "test" {
   name            = %[1]q
-  internal        = true
+  exported        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -3216,7 +3216,7 @@ func testAccLoadBalancerConfig_xffHeaderProcessingMode(rName, mode string) strin
 	return acctest.ConfigCompose(testAccLoadBalancerConfig_baseInternal(rName, 2), fmt.Sprintf(`
 resource "aws_lb" "test" {
   name            = %[1]q
-  internal        = true
+  exported        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -3232,7 +3232,7 @@ func testAccLoadBalancerConfig_xffClientPort(rName string, enabled bool) string 
 	return acctest.ConfigCompose(testAccLoadBalancerConfig_baseInternal(rName, 2), fmt.Sprintf(`
 resource "aws_lb" "test" {
   name            = %[1]q
-  internal        = true
+  exported        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -3248,7 +3248,7 @@ func testAccLoadBalancerConfig_albZonalShift(rName string, zs bool) string {
 	return acctest.ConfigCompose(testAccLoadBalancerConfig_baseInternal(rName, 2), fmt.Sprintf(`
 resource "aws_lb" "test" {
   name            = %[1]q
-  internal        = true
+  exported        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 

@@ -11,10 +11,10 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-testing/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfelbv2 "github.com/hashicorp/terraform-provider-aws/internal/service/elbv2"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
+	"github.com/hashicorp/terraform-provider-aws/exported/conns"
+	tfelbv2 "github.com/hashicorp/terraform-provider-aws/exported/service/elbv2"
+	"github.com/hashicorp/terraform-provider-aws/exported/tfresource"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -297,7 +297,7 @@ resource "aws_lb_target_group" "test" {
 }
 
 resource "aws_lb" "test" {
-  internal = true
+  exported = true
   name     = "%[1]s"
   subnets  = aws_subnet.test[*].id
 }
@@ -370,7 +370,7 @@ resource "aws_lb_target_group" "test" {
 }
 
 resource "aws_lb" "test" {
-  internal = true
+  exported = true
   name     = %[1]q
   subnets  = aws_subnet.test[*].id
 }

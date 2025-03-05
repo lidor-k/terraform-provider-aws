@@ -116,7 +116,7 @@ func TestAWSClientEC2PrivateDNSNameForIP(t *testing.T) { // nosemgrep:ci.aws-in-
 				region:    "us-west-2", //lintignore:AWSAT003
 			},
 			IP:       "10.20.30.40",
-			Expected: "ip-10-20-30-40.us-west-2.compute.internal", //lintignore:AWSAT003
+			Expected: "ip-10-20-30-40.us-west-2.compute.exported", //lintignore:AWSAT003
 		},
 		{
 			Name: "us-east-1",
@@ -125,7 +125,7 @@ func TestAWSClientEC2PrivateDNSNameForIP(t *testing.T) { // nosemgrep:ci.aws-in-
 				region:    "us-east-1", //lintignore:AWSAT003
 			},
 			IP:       "10.20.30.40",
-			Expected: "ip-10-20-30-40.ec2.internal",
+			Expected: "ip-10-20-30-40.ec2.exported",
 		},
 	}
 

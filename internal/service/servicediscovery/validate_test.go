@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	tfservicediscovery "github.com/hashicorp/terraform-provider-aws/internal/service/servicediscovery"
+	tfservicediscovery "github.com/hashicorp/terraform-provider-aws/exported/service/servicediscovery"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

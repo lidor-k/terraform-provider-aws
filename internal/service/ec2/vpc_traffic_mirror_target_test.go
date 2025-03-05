@@ -14,10 +14,10 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-testing/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfec2 "github.com/hashicorp/terraform-provider-aws/internal/service/ec2"
-	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
+	"github.com/hashicorp/terraform-provider-aws/exported/conns"
+	tfec2 "github.com/hashicorp/terraform-provider-aws/exported/service/ec2"
+	"github.com/hashicorp/terraform-provider-aws/exported/tfresource"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -265,7 +265,7 @@ func testAccVPCTrafficMirrorTargetConfig_nlb(rName, description string) string {
 	return acctest.ConfigCompose(acctest.ConfigVPCWithSubnets(rName, 2), fmt.Sprintf(`
 resource "aws_lb" "test" {
   name               = %[1]q
-  internal           = true
+  exported           = true
   load_balancer_type = "network"
   subnets            = aws_subnet.test[*].id
 
@@ -309,7 +309,7 @@ func testAccVPCTrafficMirrorTargetConfig_tags1(rName, description, tagKey1, tagV
 	return acctest.ConfigCompose(acctest.ConfigVPCWithSubnets(rName, 2), fmt.Sprintf(`
 resource "aws_lb" "test" {
   name               = %[1]q
-  internal           = true
+  exported           = true
   load_balancer_type = "network"
   subnets            = aws_subnet.test[*].id
 
@@ -331,7 +331,7 @@ func testAccVPCTrafficMirrorTargetConfig_tags2(rName, description, tagKey1, tagV
 	return acctest.ConfigCompose(acctest.ConfigVPCWithSubnets(rName, 2), fmt.Sprintf(`
 resource "aws_lb" "test" {
   name               = %[1]q
-  internal           = true
+  exported           = true
   load_balancer_type = "network"
   subnets            = aws_subnet.test[*].id
 

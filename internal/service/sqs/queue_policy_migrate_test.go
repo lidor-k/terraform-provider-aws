@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	tfsqs "github.com/hashicorp/terraform-provider-aws/internal/service/sqs"
+	tfsqs "github.com/hashicorp/terraform-provider-aws/exported/service/sqs"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

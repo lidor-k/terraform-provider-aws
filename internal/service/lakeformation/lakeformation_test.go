@@ -6,7 +6,7 @@ package lakeformation_test
 import (
 	"testing"
 
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
 )
 
 func TestAccLakeFormation_serial(t *testing.T) {

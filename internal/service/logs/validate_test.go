@@ -8,7 +8,7 @@ import (
 	"testing"
 
 	sdkacctest "github.com/hashicorp/terraform-plugin-testing/helper/acctest"
-	tflogs "github.com/hashicorp/terraform-provider-aws/internal/service/logs"
+	tflogs "github.com/hashicorp/terraform-provider-aws/exported/service/logs"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

@@ -11,9 +11,9 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/batch"
 	sdkacctest "github.com/hashicorp/terraform-plugin-testing/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-	tfecs "github.com/hashicorp/terraform-provider-aws/internal/service/ecs"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
+	"github.com/hashicorp/terraform-provider-aws/exported/conns"
+	tfecs "github.com/hashicorp/terraform-provider-aws/exported/service/ecs"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

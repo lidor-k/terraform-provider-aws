@@ -11,7 +11,7 @@ import (
 	_ "embed"
 	"slices"
 
-	"github.com/hashicorp/terraform-provider-aws/internal/generate/common"
+	"github.com/hashicorp/terraform-provider-aws/exported/generate/common"
 	"github.com/hashicorp/terraform-provider-aws/names/data"
 )
 
@@ -30,7 +30,7 @@ func main() {
 	)
 	g := common.NewGenerator()
 
-	g.Infof("Generating internal/conns/%s", filename)
+	g.Infof("Generating exported/conns/%s", filename)
 
 	data, err := data.ReadAllServiceData()
 	if err != nil {

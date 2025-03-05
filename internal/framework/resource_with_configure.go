@@ -7,7 +7,7 @@ import (
 	"context"
 
 	"github.com/hashicorp/terraform-plugin-framework/resource"
-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
+	"github.com/hashicorp/terraform-provider-aws/exported/conns"
 )
 
 // ResourceWithConfigure is a structure to be embedded within a Resource that implements the ResourceWithConfigure interface.

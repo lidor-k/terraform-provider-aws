@@ -6,7 +6,7 @@ package json_test
 import (
 	"testing"
 
-	"github.com/hashicorp/terraform-provider-aws/internal/json"
+	"github.com/hashicorp/terraform-provider-aws/exported/json"
 )
 
 func TestRemoveFields(t *testing.T) {

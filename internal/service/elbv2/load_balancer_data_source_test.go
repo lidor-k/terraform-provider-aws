@@ -9,7 +9,7 @@ import (
 
 	sdkacctest "github.com/hashicorp/terraform-plugin-testing/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
-	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
+	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -30,7 +30,7 @@ func TestAccELBV2LoadBalancerDataSource_basic(t *testing.T) {
 				Config: testAccLoadBalancerDataSourceConfig_basic(rName),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttrPair(dataSourceName, names.AttrName, resourceName, names.AttrName),
-					resource.TestCheckResourceAttrPair(dataSourceName, "internal", resourceName, "internal"),
+					resource.TestCheckResourceAttrPair(dataSourceName, "exported", resourceName, "exported"),
 					resource.TestCheckResourceAttrPair(dataSourceName, "subnets.#", resourceName, "subnets.#"),
 					resource.TestCheckResourceAttrPair(dataSourceName, "security_groups.#", resourceName, "security_groups.#"),
 					resource.TestCheckResourceAttrPair(dataSourceName, acctest.CtTagsPercent, resourceName, acctest.CtTagsPercent),
@@ -48,7 +48,7 @@ func TestAccELBV2LoadBalancerDataSource_basic(t *testing.T) {
 					resource.TestCheckResourceAttrPair(dataSourceName, "enforce_security_group_inbound_rules_on_private_link_traffic", resourceName, "enforce_security_group_inbound_rules_on_private_link_traffic"),
 					resource.TestCheckResourceAttrPair(dataSourceName, "enable_zonal_shift", resourceName, "enable_zonal_shift"),
 					resource.TestCheckResourceAttrPair(dataSourceName2, names.AttrName, resourceName, names.AttrName),
-					resource.TestCheckResourceAttrPair(dataSourceName2, "internal", resourceName, "internal"),
+					resource.TestCheckResourceAttrPair(dataSourceName2, "exported", resourceName, "exported"),
 					resource.TestCheckResourceAttrPair(dataSourceName2, "subnets.#", resourceName, "subnets.#"),
 					resource.TestCheckResourceAttrPair(dataSourceName2, "security_groups.#", resourceName, "security_groups.#"),
 					resource.TestCheckResourceAttrPair(dataSourceName2, acctest.CtTagsPercent, resourceName, acctest.CtTagsPercent),
@@ -66,7 +66,7 @@ func TestAccELBV2LoadBalancerDataSource_basic(t *testing.T) {
 					resource.TestCheckResourceAttrPair(dataSourceName2, "enforce_security_group_inbound_rules_on_private_link_traffic", resourceName, "enforce_security_group_inbound_rules_on_private_link_traffic"),
 					resource.TestCheckResourceAttrPair(dataSourceName2, "enable_zonal_shift", resourceName, "enable_zonal_shift"),
 					resource.TestCheckResourceAttrPair(dataSourceName3, names.AttrName, resourceName, names.AttrName),
-					resource.TestCheckResourceAttrPair(dataSourceName3, "internal", resourceName, "internal"),
+					resource.TestCheckResourceAttrPair(dataSourceName3, "exported", resourceName, "exported"),
 					resource.TestCheckResourceAttrPair(dataSourceName3, "subnets.#", resourceName, "subnets.#"),
 					resource.TestCheckResourceAttrPair(dataSourceName3, "security_groups.#", resourceName, "security_groups.#"),
 					resource.TestCheckResourceAttrPair(dataSourceName3, acctest.CtTagsPercent, resourceName, acctest.CtTagsPercent),
@@ -107,7 +107,7 @@ func TestAccELBV2LoadBalancerDataSource_outpost(t *testing.T) {
 				Config: testAccLoadBalancerDataSourceConfig_outpost(rName),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttrPair(dataSourceName, names.AttrName, resourceName, names.AttrName),
-					resource.TestCheckResourceAttrPair(dataSourceName, "internal", resourceName, "internal"),
+					resource.TestCheckResourceAttrPair(dataSourceName, "exported", resourceName, "exported"),
 					resource.TestCheckResourceAttrPair(dataSourceName, "subnets.#", resourceName, "subnets.#"),
 					resource.TestCheckResourceAttrPair(dataSourceName, "security_groups.#", resourceName, "security_groups.#"),
 					resource.TestCheckResourceAttrPair(dataSourceName, acctest.CtTagsPercent, resourceName, acctest.CtTagsPercent),
@@ -145,7 +145,7 @@ func TestAccELBV2LoadBalancerDataSource_backwardsCompatibility(t *testing.T) {
 				Config: testAccLoadBalancerDataSourceConfig_backwardsCompatibility(rName),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttrPair(dataSourceName1, names.AttrName, resourceName, names.AttrName),
-					resource.TestCheckResourceAttrPair(dataSourceName1, "internal", resourceName, "internal"),
+					resource.TestCheckResourceAttrPair(dataSourceName1, "exported", resourceName, "exported"),
 					resource.TestCheckResourceAttrPair(dataSourceName1, "subnets.#", resourceName, "subnets.#"),
 					resource.TestCheckResourceAttrPair(dataSourceName1, "security_groups.#", resourceName, "security_groups.#"),
 					resource.TestCheckResourceAttrPair(dataSourceName1, acctest.CtTagsPercent, resourceName, acctest.CtTagsPercent),
@@ -166,7 +166,7 @@ func TestAccELBV2LoadBalancerDataSource_backwardsCompatibility(t *testing.T) {
 					resource.TestCheckResourceAttrPair(dataSourceName1, "access_logs.#", resourceName, "access_logs.#"),
 					resource.TestCheckResourceAttrPair(dataSourceName1, "connection_logs.#", resourceName, "connection_logs.#"),
 					resource.TestCheckResourceAttrPair(dataSourceName2, names.AttrName, resourceName, names.AttrName),
-					resource.TestCheckResourceAttrPair(dataSourceName2, "internal", resourceName, "internal"),
+					resource.TestCheckResourceAttrPair(dataSourceName2, "exported", resourceName, "exported"),
 					resource.TestCheckResourceAttrPair(dataSourceName2, "subnets.#", resourceName, "subnets.#"),
 					resource.TestCheckResourceAttrPair(dataSourceName2, "security_groups.#", resourceName, "security_groups.#"),
 					resource.TestCheckResourceAttrPair(dataSourceName2, acctest.CtTagsPercent, resourceName, acctest.CtTagsPercent),
@@ -187,7 +187,7 @@ func TestAccELBV2LoadBalancerDataSource_backwardsCompatibility(t *testing.T) {
 					resource.TestCheckResourceAttrPair(dataSourceName2, "access_logs.#", resourceName, "access_logs.#"),
 					resource.TestCheckResourceAttrPair(dataSourceName2, "connection_logs.#", resourceName, "connection_logs.#"),
 					resource.TestCheckResourceAttrPair(dataSourceName3, names.AttrName, resourceName, names.AttrName),
-					resource.TestCheckResourceAttrPair(dataSourceName3, "internal", resourceName, "internal"),
+					resource.TestCheckResourceAttrPair(dataSourceName3, "exported", resourceName, "exported"),
 					resource.TestCheckResourceAttrPair(dataSourceName3, "subnets.#", resourceName, "subnets.#"),
 					resource.TestCheckResourceAttrPair(dataSourceName3, "security_groups.#", resourceName, "security_groups.#"),
 					resource.TestCheckResourceAttrPair(dataSourceName3, acctest.CtTagsPercent, resourceName, acctest.CtTagsPercent),
@@ -217,7 +217,7 @@ func testAccLoadBalancerDataSourceConfig_basic(rName string) string {
 	return acctest.ConfigCompose(acctest.ConfigVPCWithSubnets(rName, 2), fmt.Sprintf(`
 resource "aws_lb" "test" {
   name            = %[1]q
-  internal        = true
+  exported        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -279,7 +279,7 @@ data "aws_outposts_outpost" "test" {
 
 resource "aws_lb" "test" {
   name            = %[1]q
-  internal        = true
+  exported        = true
   security_groups = [aws_security_group.test.id]
   subnets         = [aws_subnet.test.id]
 
@@ -345,7 +345,7 @@ func testAccLoadBalancerDataSourceConfig_backwardsCompatibility(rName string) st
 	return acctest.ConfigCompose(acctest.ConfigVPCWithSubnets(rName, 2), fmt.Sprintf(`
 resource "aws_alb" "test" {
   name            = %[1]q
-  internal        = true
+  exported        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 

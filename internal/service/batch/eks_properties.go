@@ -11,8 +11,8 @@ import (
 	"github.com/aws/aws-sdk-go-v2/aws"
 	_ "github.com/aws/aws-sdk-go-v2/service/batch" // Required for go:linkname
 	awstypes "github.com/aws/aws-sdk-go-v2/service/batch/types"
-	tfjson "github.com/hashicorp/terraform-provider-aws/internal/json"
-	tfslices "github.com/hashicorp/terraform-provider-aws/internal/slices"
+	tfjson "github.com/hashicorp/terraform-provider-aws/exported/json"
+	tfslices "github.com/hashicorp/terraform-provider-aws/exported/slices"
 )
 
 type eksProperties awstypes.EksProperties
