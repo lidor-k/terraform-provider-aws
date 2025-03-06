@@ -27,6 +27,9 @@ var (
 	ResourceTransitGateway                                         = resourceTransitGateway
 	ResourceTransitGatewayConnectPeer                              = resourceTransitGatewayConnectPeer
 	ResourceVPC                                                    = resourceVPC
+	ResourceInstance                                               = resourceInstance
+	ResourceSubnet                                                 = resourceSubnet
+	ResourceInternetGateway                                        = resourceInternetGateway
 	VPCEndpointCreationTimeout                                     = vpcEndpointCreationTimeout
 	WaitVPCEndpointAvailable                                       = waitVPCEndpointAvailable
 )
