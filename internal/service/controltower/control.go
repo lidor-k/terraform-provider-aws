@@ -17,14 +17,14 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/retry"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/hashicorp/terraform-provider-aws/exported/conns"
-	"github.com/hashicorp/terraform-provider-aws/exported/enum"
-	"github.com/hashicorp/terraform-provider-aws/exported/errs"
-	"github.com/hashicorp/terraform-provider-aws/exported/errs/sdkdiag"
-	"github.com/hashicorp/terraform-provider-aws/exported/flex"
-	tfslices "github.com/hashicorp/terraform-provider-aws/exported/slices"
-	"github.com/hashicorp/terraform-provider-aws/exported/tfresource"
-	"github.com/hashicorp/terraform-provider-aws/exported/verify"
+	"github.com/hashicorp/terraform-provider-aws/internal/conns"
+	"github.com/hashicorp/terraform-provider-aws/internal/enum"
+	"github.com/hashicorp/terraform-provider-aws/internal/errs"
+	"github.com/hashicorp/terraform-provider-aws/internal/errs/sdkdiag"
+	"github.com/hashicorp/terraform-provider-aws/internal/flex"
+	tfslices "github.com/hashicorp/terraform-provider-aws/internal/slices"
+	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
+	"github.com/hashicorp/terraform-provider-aws/internal/verify"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -154,14 +154,14 @@ func resourceControlRead(ctx context.Context, d *schema.ResourceData, meta inter
 		output, err = findEnabledControlByARN(ctx, conn, v.(string))
 	} else {
 		// backwards compatibility if ARN is not set from existing state
-		parts, exportedErr := flex.ExpandResourceId(d.Id(), controlResourceIDPartCount, false)
-		if exportedErr != nil {
+		parts, internalErr := flex.ExpandResourceId(d.Id(), controlResourceIDPartCount, false)
+		if internalErr != nil {
 			return sdkdiag.AppendFromErr(diags, err)
 		}
 
 		targetIdentifier, controlIdentifier := parts[0], parts[1]
-		out, exportedErr := findEnabledControlByTwoPartKey(ctx, conn, targetIdentifier, controlIdentifier)
-		if exportedErr != nil {
+		out, internalErr := findEnabledControlByTwoPartKey(ctx, conn, targetIdentifier, controlIdentifier)
+		if internalErr != nil {
 			return sdkdiag.AppendErrorf(diags, "reading ControlTower Control (%s): %s", d.Id(), err)
 		}
 

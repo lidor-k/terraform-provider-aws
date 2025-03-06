@@ -11,11 +11,11 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/diag"
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
-	"github.com/hashicorp/terraform-provider-aws/exported/framework/flex"
-	"github.com/hashicorp/terraform-provider-aws/exported/provider/interceptors"
-	tftags "github.com/hashicorp/terraform-provider-aws/exported/tags"
-	"github.com/hashicorp/terraform-provider-aws/exported/types"
-	"github.com/hashicorp/terraform-provider-aws/exported/types/option"
+	"github.com/hashicorp/terraform-provider-aws/internal/framework/flex"
+	"github.com/hashicorp/terraform-provider-aws/internal/provider/interceptors"
+	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
+	"github.com/hashicorp/terraform-provider-aws/internal/types"
+	"github.com/hashicorp/terraform-provider-aws/internal/types/option"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

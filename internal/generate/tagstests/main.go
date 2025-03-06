@@ -25,9 +25,9 @@ import (
 	"time"
 
 	"github.com/dlclark/regexp2"
-	acctestgen "github.com/hashicorp/terraform-provider-aws/exported/acctest/generate"
-	"github.com/hashicorp/terraform-provider-aws/exported/generate/common"
-	tfmaps "github.com/hashicorp/terraform-provider-aws/exported/maps"
+	acctestgen "github.com/hashicorp/terraform-provider-aws/internal/acctest/generate"
+	"github.com/hashicorp/terraform-provider-aws/internal/generate/common"
+	tfmaps "github.com/hashicorp/terraform-provider-aws/internal/maps"
 	"github.com/hashicorp/terraform-provider-aws/names/data"
 	namesgen "github.com/hashicorp/terraform-provider-aws/names/generate"
 )
@@ -45,7 +45,7 @@ func main() {
 
 	servicePackage := os.Getenv("GOPACKAGE")
 
-	g.Infof("Generating tagging tests for exported/service/%s", servicePackage)
+	g.Infof("Generating tagging tests for internal/service/%s", servicePackage)
 
 	var (
 		svc   serviceRecords
@@ -53,7 +53,7 @@ func main() {
 	)
 
 	for _, l := range serviceData {
-		// See exported/generate/namesconsts/main.go.
+		// See internal/generate/namesconsts/main.go.
 		if p := l.SplitPackageRealPackage(); p != "" {
 			if p != servicePackage {
 				continue
@@ -605,7 +605,7 @@ func (v *visitor) processFuncDecl(funcDecl *ast.FuncDecl) {
 						d.CheckDestroyNoop = b
 						d.GoImports = append(d.GoImports,
 							goImport{
-								Path: "github.com/hashicorp/terraform-provider-aws/exported/acctest",
+								Path: "github.com/hashicorp/terraform-provider-aws/internal/acctest",
 							},
 						)
 					}
@@ -784,7 +784,7 @@ func (v *visitor) processFuncDecl(funcDecl *ast.FuncDecl) {
 			tlsKeyCN = "acctest.RandomDomain().String()"
 			d.GoImports = append(d.GoImports,
 				goImport{
-					Path: "github.com/hashicorp/terraform-provider-aws/exported/acctest",
+					Path: "github.com/hashicorp/terraform-provider-aws/internal/acctest",
 				},
 			)
 		}
@@ -814,7 +814,7 @@ func (v *visitor) processFuncDecl(funcDecl *ast.FuncDecl) {
 						Alias: "sdkacctest",
 					},
 					goImport{
-						Path: "github.com/hashicorp/terraform-provider-aws/exported/acctest",
+						Path: "github.com/hashicorp/terraform-provider-aws/internal/acctest",
 					},
 				)
 			}

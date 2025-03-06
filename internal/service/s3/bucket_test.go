@@ -27,12 +27,12 @@ import (
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/plancheck"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
-	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
-	"github.com/hashicorp/terraform-provider-aws/exported/conns"
-	tfcloudformation "github.com/hashicorp/terraform-provider-aws/exported/service/cloudformation"
-	tfs3 "github.com/hashicorp/terraform-provider-aws/exported/service/s3"
-	tftags "github.com/hashicorp/terraform-provider-aws/exported/tags"
-	"github.com/hashicorp/terraform-provider-aws/exported/tfresource"
+	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
+	"github.com/hashicorp/terraform-provider-aws/internal/conns"
+	tfcloudformation "github.com/hashicorp/terraform-provider-aws/internal/service/cloudformation"
+	tfs3 "github.com/hashicorp/terraform-provider-aws/internal/service/s3"
+	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
+	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

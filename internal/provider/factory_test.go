@@ -7,10 +7,10 @@ import (
 	"context"
 	"testing"
 
-	"github.com/hashicorp/terraform-provider-aws/exported/provider"
+	"github.com/hashicorp/terraform-provider-aws/internal/provider"
 )
 
-// go test -bench=BenchmarkProtoV5ProviderServerFactory -benchtime 1x -benchmem -run=Bench -v ./exported/provider
+// go test -bench=BenchmarkProtoV5ProviderServerFactory -benchtime 1x -benchmem -run=Bench -v ./internal/provider
 func BenchmarkProtoV5ProviderServerFactory(b *testing.B) {
 	_, p, err := provider.ProtoV5ProviderServerFactory(context.Background())
 

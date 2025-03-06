@@ -11,7 +11,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/diag"
 	"github.com/hashicorp/terraform-plugin-framework/types/basetypes"
 	"github.com/hashicorp/terraform-plugin-go/tftypes"
-	"github.com/hashicorp/terraform-provider-aws/exported/errs/fwdiag"
+	"github.com/hashicorp/terraform-provider-aws/internal/errs/fwdiag"
 )
 
 var (
@@ -59,7 +59,7 @@ func (t mapTypeOf[T]) ValueFromMap(ctx context.Context, in basetypes.MapValue) (
 	}
 
 	// Here marks the spot where countless hours were spent all over the
-	// exported organs of framework and autoflex only to discover the
+	// internal organs of framework and autoflex only to discover the
 	// first argument in this call should be an element type not the map
 	// type.
 	mapValue, d := basetypes.NewMapValue(newAttrTypeOf[T](ctx), in.Elements())

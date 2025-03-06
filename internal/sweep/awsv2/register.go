@@ -8,8 +8,8 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
-	"github.com/hashicorp/terraform-provider-aws/exported/sweep"
-	"github.com/hashicorp/terraform-provider-aws/exported/sweep/exported/log"
+	"github.com/hashicorp/terraform-provider-aws/internal/sweep"
+	"github.com/hashicorp/terraform-provider-aws/internal/sweep/internal/log"
 )
 
 func Register(name string, f sweep.SweeperFn, dependencies ...string) {

@@ -17,10 +17,10 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-testing/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
-	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
-	"github.com/hashicorp/terraform-provider-aws/exported/conns"
-	tfecs "github.com/hashicorp/terraform-provider-aws/exported/service/ecs"
-	"github.com/hashicorp/terraform-provider-aws/exported/tfresource"
+	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
+	"github.com/hashicorp/terraform-provider-aws/internal/conns"
+	tfecs "github.com/hashicorp/terraform-provider-aws/internal/service/ecs"
+	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -2870,7 +2870,7 @@ resource "aws_lb_target_group" "test" {
 
 resource "aws_lb" "test" {
   name     = %[1]q
-  exported = true
+  internal = true
   subnets  = aws_subnet.test[*].id
 }
 
@@ -2975,7 +2975,7 @@ EOF
 }
 
 resource "aws_elb" "test" {
-  exported = true
+  internal = true
   subnets  = aws_subnet.test[*].id
 
   listener {
@@ -3208,7 +3208,7 @@ resource "aws_lb_target_group" "test" {
 
 resource "aws_lb" "test" {
   name     = %[1]q
-  exported = true
+  internal = true
   subnets  = aws_subnet.test[*].id
 }
 
@@ -3424,7 +3424,7 @@ resource "aws_lb_target_group" "test" {
 
 resource "aws_lb" "test" {
   name     = %[1]q
-  exported = true
+  internal = true
   subnets  = aws_subnet.test[*].id
 }
 
@@ -3505,7 +3505,7 @@ resource "aws_lb_target_group" "static" {
 
 resource "aws_lb" "test" {
   name     = %[1]q
-  exported = true
+  internal = true
   subnets  = aws_subnet.test[*].id
 }
 
@@ -4053,7 +4053,7 @@ resource "aws_ecs_service" "test" {
 func testAccServiceConfig_deploymentControllerTypeCodeDeploy(rName string) string {
 	return acctest.ConfigCompose(acctest.ConfigVPCWithSubnets(rName, 2), fmt.Sprintf(`
 resource "aws_lb" "test" {
-  exported = true
+  internal = true
   name     = %[1]q
   subnets  = aws_subnet.test[*].id
 }
@@ -4177,7 +4177,7 @@ resource "aws_route_table_association" "test" {
 }
 
 resource "aws_lb" "test" {
-  exported = true
+  internal = true
   name     = %[1]q
   subnets  = aws_subnet.test[*].id
 }

@@ -6,7 +6,7 @@ package ssm
 import (
 	"github.com/aws/aws-sdk-go-v2/aws"
 	awstypes "github.com/aws/aws-sdk-go-v2/service/ssm/types"
-	"github.com/hashicorp/terraform-provider-aws/exported/flex"
+	"github.com/hashicorp/terraform-provider-aws/internal/flex"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

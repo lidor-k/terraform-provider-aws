@@ -12,10 +12,10 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-testing/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
-	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
-	"github.com/hashicorp/terraform-provider-aws/exported/conns"
-	tfapigateway "github.com/hashicorp/terraform-provider-aws/exported/service/apigateway"
-	"github.com/hashicorp/terraform-provider-aws/exported/tfresource"
+	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
+	"github.com/hashicorp/terraform-provider-aws/internal/conns"
+	tfapigateway "github.com/hashicorp/terraform-provider-aws/internal/service/apigateway"
+	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -127,7 +127,7 @@ func testAccVPCLinkConfig_base(rName string) string {
 	return acctest.ConfigCompose(acctest.ConfigVPCWithSubnets(rName, 1), fmt.Sprintf(`
 resource "aws_lb" "test" {
   name               = %[1]q
-  exported           = true
+  internal           = true
   load_balancer_type = "network"
   subnets            = aws_subnet.test[*].id
 }

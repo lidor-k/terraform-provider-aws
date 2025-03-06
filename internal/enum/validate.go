@@ -26,7 +26,7 @@ func FrameworkValidateIgnoreCase[T Valueser[T]]() validator.String {
 	return stringvalidator.OneOfCaseInsensitive(Values[T]()...)
 }
 
-// TODO Move to exported/framework/validators or replace with custom types.
+// TODO Move to internal/framework/validators or replace with custom types.
 func FrameworkValidate[T Valueser[T]]() validator.String {
 	return stringvalidator.OneOf(Values[T]()...)
 }

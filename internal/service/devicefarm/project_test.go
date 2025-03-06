@@ -14,10 +14,10 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-testing/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
-	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
-	"github.com/hashicorp/terraform-provider-aws/exported/conns"
-	tfdevicefarm "github.com/hashicorp/terraform-provider-aws/exported/service/devicefarm"
-	"github.com/hashicorp/terraform-provider-aws/exported/tfresource"
+	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
+	"github.com/hashicorp/terraform-provider-aws/internal/conns"
+	tfdevicefarm "github.com/hashicorp/terraform-provider-aws/internal/service/devicefarm"
+	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

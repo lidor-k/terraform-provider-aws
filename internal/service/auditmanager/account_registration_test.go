@@ -13,10 +13,10 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/auditmanager/types"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
-	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
-	"github.com/hashicorp/terraform-provider-aws/exported/conns"
-	"github.com/hashicorp/terraform-provider-aws/exported/create"
-	tfauditmanager "github.com/hashicorp/terraform-provider-aws/exported/service/auditmanager"
+	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
+	"github.com/hashicorp/terraform-provider-aws/internal/conns"
+	"github.com/hashicorp/terraform-provider-aws/internal/create"
+	tfauditmanager "github.com/hashicorp/terraform-provider-aws/internal/service/auditmanager"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

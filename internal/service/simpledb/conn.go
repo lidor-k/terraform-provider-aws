@@ -15,8 +15,8 @@ import (
 	"github.com/aws/aws-sdk-go/aws/endpoints"
 	"github.com/aws/aws-sdk-go/service/simpledb"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
-	"github.com/hashicorp/terraform-provider-aws/exported/conns"
-	"github.com/hashicorp/terraform-provider-aws/exported/errs"
+	"github.com/hashicorp/terraform-provider-aws/internal/conns"
+	"github.com/hashicorp/terraform-provider-aws/internal/errs"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -25,9 +25,9 @@ var (
 )
 
 // Adapted from
-// exported/conns/awsclient_gen.go: func (c *AWSClient) SimpleDBConn(ctx context.Context) *simpledb_sdkv1.SimpleDB
-// exported/conns/awsclient.go: func conn[T any](ctx context.Context, c *AWSClient, servicePackageName string, extra map[string]any) (T, error)
-// exported/service/simpledb/service_package_gen.go: func (p *servicePackage) NewConn(ctx context.Context, config map[string]any) (*simpledb_sdkv1.SimpleDB, error)
+// internal/conns/awsclient_gen.go: func (c *AWSClient) SimpleDBConn(ctx context.Context) *simpledb_sdkv1.SimpleDB
+// internal/conns/awsclient.go: func conn[T any](ctx context.Context, c *AWSClient, servicePackageName string, extra map[string]any) (T, error)
+// internal/service/simpledb/service_package_gen.go: func (p *servicePackage) NewConn(ctx context.Context, config map[string]any) (*simpledb_sdkv1.SimpleDB, error)
 
 func simpleDBConn(ctx context.Context, c *conns.AWSClient) *simpledb.SimpleDB { // nosemgrep:ci.simpledb-in-func-name
 	const servicePackageName = names.SimpleDB
@@ -58,7 +58,7 @@ func simpleDBConn(ctx context.Context, c *conns.AWSClient) *simpledb.SimpleDB { 
 }
 
 // Adapted from
-//	exported/conns/awsclient_resolveendpoint_gen.go: func (c *AWSClient) ResolveEndpoint(ctx context.Context, servicePackageName string) string
+//	internal/conns/awsclient_resolveendpoint_gen.go: func (c *AWSClient) ResolveEndpoint(ctx context.Context, servicePackageName string) string
 
 func resolveEndpoint(ctx context.Context, c *conns.AWSClient) string {
 	endpoint := c.Endpoints(ctx)[names.SimpleDB]
@@ -84,7 +84,7 @@ func resolveEndpoint(ctx context.Context, c *conns.AWSClient) string {
 	return endpoint
 }
 
-// Copied from exported/conns/awsclient.go.
+// Copied from internal/conns/awsclient.go.
 
 // serviceBaseEndpointProvider is needed to search for all providers
 // that provide a configured service endpoint
@@ -110,7 +110,7 @@ func resolveServiceBaseEndpoint(ctx context.Context, sdkID string, configs []any
 	return
 }
 
-// Copied from exported/service/simpledb/service_endpoint_resolver_gen.go.
+// Copied from internal/service/simpledb/service_endpoint_resolver_gen.go.
 
 var _ endpoints.Resolver = resolverSDKv1{}
 

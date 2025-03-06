@@ -9,8 +9,8 @@ import (
 
 	sdkacctest "github.com/hashicorp/terraform-plugin-testing/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
-	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
-	tfs3 "github.com/hashicorp/terraform-provider-aws/exported/service/s3"
+	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
+	tfs3 "github.com/hashicorp/terraform-provider-aws/internal/service/s3"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

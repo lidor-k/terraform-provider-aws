@@ -12,7 +12,7 @@ import (
 	"unicode"
 
 	"github.com/aws/aws-sdk-go-v2/aws"
-	tfslices "github.com/hashicorp/terraform-provider-aws/exported/slices"
+	tfslices "github.com/hashicorp/terraform-provider-aws/internal/slices"
 )
 
 func cleanDelegationSetID(id string) string {

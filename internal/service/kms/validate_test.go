@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	tfkms "github.com/hashicorp/terraform-provider-aws/exported/service/kms"
+	tfkms "github.com/hashicorp/terraform-provider-aws/internal/service/kms"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

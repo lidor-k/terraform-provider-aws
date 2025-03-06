@@ -21,15 +21,15 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/structure"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
-	"github.com/hashicorp/terraform-provider-aws/exported/conns"
-	"github.com/hashicorp/terraform-provider-aws/exported/enum"
-	"github.com/hashicorp/terraform-provider-aws/exported/errs"
-	"github.com/hashicorp/terraform-provider-aws/exported/errs/sdkdiag"
-	"github.com/hashicorp/terraform-provider-aws/exported/flex"
-	"github.com/hashicorp/terraform-provider-aws/exported/semver"
-	tftags "github.com/hashicorp/terraform-provider-aws/exported/tags"
-	"github.com/hashicorp/terraform-provider-aws/exported/tfresource"
-	"github.com/hashicorp/terraform-provider-aws/exported/verify"
+	"github.com/hashicorp/terraform-provider-aws/internal/conns"
+	"github.com/hashicorp/terraform-provider-aws/internal/enum"
+	"github.com/hashicorp/terraform-provider-aws/internal/errs"
+	"github.com/hashicorp/terraform-provider-aws/internal/errs/sdkdiag"
+	"github.com/hashicorp/terraform-provider-aws/internal/flex"
+	"github.com/hashicorp/terraform-provider-aws/internal/semver"
+	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
+	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
+	"github.com/hashicorp/terraform-provider-aws/internal/verify"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -137,7 +137,7 @@ func resourceDomain() *schema.Resource {
 							Type:     schema.TypeBool,
 							Required: true,
 						},
-						"exported_user_database_enabled": {
+						"internal_user_database_enabled": {
 							Type:     schema.TypeBool,
 							Optional: true,
 							Default:  false,

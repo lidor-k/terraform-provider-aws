@@ -6,7 +6,7 @@ package option
 import (
 	"errors"
 
-	"github.com/hashicorp/terraform-provider-aws/exported/errs"
+	"github.com/hashicorp/terraform-provider-aws/internal/errs"
 )
 
 var (

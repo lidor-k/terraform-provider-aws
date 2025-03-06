@@ -15,7 +15,7 @@ import (
 	"fmt"
 	"testing"
 
-	tfeks "github.com/hashicorp/terraform-provider-aws/exported/service/eks"
+	tfeks "github.com/hashicorp/terraform-provider-aws/internal/service/eks"
 )
 
 func TestUserARN(t *testing.T) {

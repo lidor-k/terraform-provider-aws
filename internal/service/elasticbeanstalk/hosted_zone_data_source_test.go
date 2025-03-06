@@ -10,8 +10,8 @@ import (
 	"github.com/YakDriver/regexache"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
-	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
-	tfelasticbeanstalk "github.com/hashicorp/terraform-provider-aws/exported/service/elasticbeanstalk"
+	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
+	tfelasticbeanstalk "github.com/hashicorp/terraform-provider-aws/internal/service/elasticbeanstalk"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

@@ -15,7 +15,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/tfsdk"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-go/tftypes"
-	fwplanmodifiers "github.com/hashicorp/terraform-provider-aws/exported/framework/planmodifiers"
+	fwplanmodifiers "github.com/hashicorp/terraform-provider-aws/internal/framework/planmodifiers"
 )
 
 func TestListDefaultValueFromPath(t *testing.T) {

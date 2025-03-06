@@ -12,7 +12,7 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/hashicorp/terraform-provider-aws/exported/generate/common"
+	"github.com/hashicorp/terraform-provider-aws/internal/generate/common"
 )
 
 //go:embed consts.gtpl
@@ -36,10 +36,10 @@ type TemplateData struct {
 
 func main() {
 	const (
-		constsFilename       = "../../../exported/acctest/consts_gen.go"
-		constOrQuoteFilename = "../../../exported/acctest/generate/const_or_quote_gen.go"
+		constsFilename       = "../../../internal/acctest/consts_gen.go"
+		constOrQuoteFilename = "../../../internal/acctest/generate/const_or_quote_gen.go"
 		semgrepFilename      = "../../../.ci/.semgrep-test-constants.yml"
-		constantDataFile     = "../../../exported/acctest/consts.csv"
+		constantDataFile     = "../../../internal/acctest/consts.csv"
 	)
 	g := common.NewGenerator()
 

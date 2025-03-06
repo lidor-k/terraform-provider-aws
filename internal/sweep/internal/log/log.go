@@ -15,8 +15,8 @@ const (
 	loggingKeySweeperRegion = "sweeper_region"
 
 	// Copied from:
-	// * https://github.com/hashicorp/terraform-plugin-sdk/blob/ffbf0104398c0aa91aa3a82aff4b67e260677454/exported/logging/keys.go#L29
-	// * https://github.com/hashicorp/terraform-plugin-framework/blob/743126edc3b04e735c05f2ddfa42e990b7231600/exported/logging/keys.go#L29
+	// * https://github.com/hashicorp/terraform-plugin-sdk/blob/ffbf0104398c0aa91aa3a82aff4b67e260677454/internal/logging/keys.go#L29
+	// * https://github.com/hashicorp/terraform-plugin-framework/blob/743126edc3b04e735c05f2ddfa42e990b7231600/internal/logging/keys.go#L29
 	loggingKeyResourceType = "tf_resource_type"
 )
 

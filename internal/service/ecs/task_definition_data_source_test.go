@@ -10,7 +10,7 @@ import (
 	"github.com/YakDriver/regexache"
 	sdkacctest "github.com/hashicorp/terraform-plugin-testing/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
-	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
+	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -77,8 +77,8 @@ func TestAccECSTaskDefinitionDataSource_ec2(t *testing.T) {
 					resource.TestCheckResourceAttr(dataSourceName, "volume.0.docker_volume_configuration.0.autoprovision", acctest.CtTrue),
 					resource.TestCheckResourceAttr(dataSourceName, "volume.0.docker_volume_configuration.0.driver", "local"),
 					resource.TestCheckResourceAttr(dataSourceName, "volume.0.docker_volume_configuration.0.driver_opts.type", "nfs"),
-					resource.TestCheckResourceAttr(dataSourceName, "volume.0.docker_volume_configuration.0.driver_opts.device", "test-efs.exported:/"),
-					resource.TestCheckResourceAttr(dataSourceName, "volume.0.docker_volume_configuration.0.driver_opts.o", "addr=test-efs.exported,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport"),
+					resource.TestCheckResourceAttr(dataSourceName, "volume.0.docker_volume_configuration.0.driver_opts.device", "test-efs.internal:/"),
+					resource.TestCheckResourceAttr(dataSourceName, "volume.0.docker_volume_configuration.0.driver_opts.o", "addr=test-efs.internal,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport"),
 				),
 			},
 		},
@@ -283,8 +283,8 @@ TASK_DEFINITION
 
       driver_opts = {
         "type"   = "nfs"
-        "device" = "test-efs.exported:/"
-        "o"      = "addr=test-efs.exported,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport"
+        "device" = "test-efs.internal:/"
+        "o"      = "addr=test-efs.internal,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport"
       }
     }
   }

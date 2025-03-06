@@ -9,7 +9,7 @@ import (
 
 	sdkacctest "github.com/hashicorp/terraform-plugin-testing/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
-	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
+	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -30,7 +30,7 @@ func TestAccELBLoadBalancerDataSource_basic(t *testing.T) {
 					resource.TestCheckResourceAttr(dataSourceName, names.AttrName, rName),
 					resource.TestCheckResourceAttr(dataSourceName, "cross_zone_load_balancing", acctest.CtTrue),
 					resource.TestCheckResourceAttr(dataSourceName, "idle_timeout", "30"),
-					resource.TestCheckResourceAttr(dataSourceName, "exported", acctest.CtTrue),
+					resource.TestCheckResourceAttr(dataSourceName, "internal", acctest.CtTrue),
 					resource.TestCheckResourceAttr(dataSourceName, "subnets.#", "2"),
 					resource.TestCheckResourceAttr(dataSourceName, "security_groups.#", "1"),
 					resource.TestCheckResourceAttr(dataSourceName, "desync_mitigation_mode", "defensive"),
@@ -50,7 +50,7 @@ func testAccLoadBalancerDataSourceConfig_basic(rName, testName string) string {
 	return acctest.ConfigCompose(acctest.ConfigAvailableAZsNoOptIn(), fmt.Sprintf(`
 resource "aws_elb" "test" {
   name            = %[1]q
-  exported        = true
+  internal        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 

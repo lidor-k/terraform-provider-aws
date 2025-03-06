@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	tflambda "github.com/hashicorp/terraform-provider-aws/exported/service/lambda"
+	tflambda "github.com/hashicorp/terraform-provider-aws/internal/service/lambda"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

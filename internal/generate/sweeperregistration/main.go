@@ -15,7 +15,7 @@ import (
 	"os"
 	"slices"
 
-	"github.com/hashicorp/terraform-provider-aws/exported/generate/common"
+	"github.com/hashicorp/terraform-provider-aws/internal/generate/common"
 	"github.com/hashicorp/terraform-provider-aws/names/data"
 )
 

@@ -9,8 +9,8 @@ import (
 
 	"github.com/YakDriver/regexache"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
-	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
-	tfmeta "github.com/hashicorp/terraform-provider-aws/exported/service/meta"
+	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
+	tfmeta "github.com/hashicorp/terraform-provider-aws/internal/service/meta"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

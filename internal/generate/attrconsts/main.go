@@ -12,7 +12,7 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/hashicorp/terraform-provider-aws/exported/generate/common"
+	"github.com/hashicorp/terraform-provider-aws/internal/generate/common"
 )
 
 // names/attr_consts_gen.go is used by other generators so it is very important

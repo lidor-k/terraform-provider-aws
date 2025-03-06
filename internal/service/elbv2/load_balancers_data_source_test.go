@@ -9,7 +9,7 @@ import (
 
 	sdkacctest "github.com/hashicorp/terraform-plugin-testing/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
-	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
+	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -55,7 +55,7 @@ func testAccLoadBalancersDataSourceConfig_basic(rName, lbName1, lbName2, tagValu
 resource "aws_lb" "test1" {
   name               = %[2]q
   load_balancer_type = "application"
-  exported           = true
+  internal           = true
   subnets            = aws_subnet.test[*].id
 
   tags = {
@@ -67,7 +67,7 @@ resource "aws_lb" "test1" {
 resource "aws_lb" "test2" {
   name               = %[3]q
   load_balancer_type = "application"
-  exported           = true
+  internal           = true
   subnets            = aws_subnet.test[*].id
 
   tags = {

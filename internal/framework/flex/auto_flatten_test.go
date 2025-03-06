@@ -19,10 +19,10 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/diag"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflogtest"
-	"github.com/hashicorp/terraform-provider-aws/exported/errs"
-	"github.com/hashicorp/terraform-provider-aws/exported/errs/fwdiag"
-	fwtypes "github.com/hashicorp/terraform-provider-aws/exported/framework/types"
-	smithyjson "github.com/hashicorp/terraform-provider-aws/exported/json"
+	"github.com/hashicorp/terraform-provider-aws/internal/errs"
+	"github.com/hashicorp/terraform-provider-aws/internal/errs/fwdiag"
+	fwtypes "github.com/hashicorp/terraform-provider-aws/internal/framework/types"
+	smithyjson "github.com/hashicorp/terraform-provider-aws/internal/json"
 )
 
 func TestFlatten(t *testing.T) {

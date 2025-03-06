@@ -7,8 +7,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
-	tfkinesis "github.com/hashicorp/terraform-provider-aws/exported/service/kinesis"
+	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
+	tfkinesis "github.com/hashicorp/terraform-provider-aws/internal/service/kinesis"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

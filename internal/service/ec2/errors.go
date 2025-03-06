@@ -9,7 +9,7 @@ import (
 
 	"github.com/aws/aws-sdk-go-v2/aws"
 	awstypes "github.com/aws/aws-sdk-go-v2/service/ec2/types"
-	"github.com/hashicorp/terraform-provider-aws/exported/errs"
+	"github.com/hashicorp/terraform-provider-aws/internal/errs"
 )
 
 const (

@@ -8,7 +8,7 @@ const (
 	TypeNameIgnoreConfig = `IgnoreConfig`
 )
 
-// IsTypeIgnoreConfig returns if the type is IgnoreConfig from the exported/keyvaluetags package
+// IsTypeIgnoreConfig returns if the type is IgnoreConfig from the internal/keyvaluetags package
 func IsTypeIgnoreConfig(t types.Type) bool {
 	switch t := t.(type) {
 	case *types.Named:

@@ -9,7 +9,7 @@ import (
 
 	"github.com/hashicorp/go-cty/cty"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
-	"github.com/hashicorp/terraform-provider-aws/exported/flex"
+	"github.com/hashicorp/terraform-provider-aws/internal/flex"
 )
 
 type mockWriteOnlyAttrGetter struct {

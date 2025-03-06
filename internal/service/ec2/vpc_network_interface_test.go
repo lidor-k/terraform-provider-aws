@@ -19,10 +19,10 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-testing/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
-	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
-	"github.com/hashicorp/terraform-provider-aws/exported/conns"
-	tfec2 "github.com/hashicorp/terraform-provider-aws/exported/service/ec2"
-	"github.com/hashicorp/terraform-provider-aws/exported/tfresource"
+	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
+	"github.com/hashicorp/terraform-provider-aws/internal/conns"
+	tfec2 "github.com/hashicorp/terraform-provider-aws/internal/service/ec2"
+	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -1052,7 +1052,7 @@ func TestAccVPCNetworkInterface_privateIPList(t *testing.T) {
 
 // checkResourceAttrPrivateDNSName ensures the Terraform state exactly matches a private DNS name
 //
-// For example: ip-172-16-10-100.us-west-2.compute.exported
+// For example: ip-172-16-10-100.us-west-2.compute.internal
 func checkResourceAttrPrivateDNSName(resourceName, attributeName string, privateIpAddress **string) resource.TestCheckFunc {
 	return func(s *terraform.State) error {
 		privateDnsName := fmt.Sprintf("ip-%s.%s", convertIPToDashIP(**privateIpAddress), regionalPrivateDNSSuffix(acctest.Region()))
@@ -1067,10 +1067,10 @@ func convertIPToDashIP(ip string) string {
 
 func regionalPrivateDNSSuffix(region string) string {
 	if region == endpoints.UsEast1RegionID {
-		return "ec2.exported"
+		return "ec2.internal"
 	}
 
-	return fmt.Sprintf("%s.compute.exported", region)
+	return fmt.Sprintf("%s.compute.internal", region)
 }
 
 func testAccCheckENIExists(ctx context.Context, n string, v *types.NetworkInterface) resource.TestCheckFunc {

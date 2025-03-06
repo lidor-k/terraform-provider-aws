@@ -24,7 +24,7 @@ func expandAdvancedSecurityOptions(m []interface{}) *awstypes.AdvancedSecurityOp
 				config.AnonymousAuthEnabled = aws.Bool(v)
 			}
 
-			if v, ok := group["exported_user_database_enabled"].(bool); ok {
+			if v, ok := group["internal_user_database_enabled"].(bool); ok {
 				config.InternalUserDatabaseEnabled = aws.Bool(v)
 			}
 
@@ -242,7 +242,7 @@ func flattenAdvancedSecurityOptions(advancedSecurityOptions *awstypes.AdvancedSe
 	}
 
 	if aws.ToBool(advancedSecurityOptions.Enabled) && advancedSecurityOptions.InternalUserDatabaseEnabled != nil {
-		m["exported_user_database_enabled"] = aws.ToBool(advancedSecurityOptions.InternalUserDatabaseEnabled)
+		m["internal_user_database_enabled"] = aws.ToBool(advancedSecurityOptions.InternalUserDatabaseEnabled)
 	}
 
 	return []map[string]interface{}{m}

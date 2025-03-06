@@ -12,11 +12,11 @@ import (
 	awstypes "github.com/aws/aws-sdk-go-v2/service/elasticloadbalancingv2/types"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/hashicorp/terraform-provider-aws/exported/conns"
-	"github.com/hashicorp/terraform-provider-aws/exported/errs"
-	"github.com/hashicorp/terraform-provider-aws/exported/errs/sdkdiag"
-	tftags "github.com/hashicorp/terraform-provider-aws/exported/tags"
-	"github.com/hashicorp/terraform-provider-aws/exported/verify"
+	"github.com/hashicorp/terraform-provider-aws/internal/conns"
+	"github.com/hashicorp/terraform-provider-aws/internal/errs"
+	"github.com/hashicorp/terraform-provider-aws/internal/errs/sdkdiag"
+	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
+	"github.com/hashicorp/terraform-provider-aws/internal/verify"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -142,7 +142,7 @@ func dataSourceLoadBalancer() *schema.Resource {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"exported": {
+			"internal": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
@@ -277,7 +277,7 @@ func dataSourceLoadBalancerRead(ctx context.Context, d *schema.ResourceData, met
 	d.Set("enforce_security_group_inbound_rules_on_private_link_traffic", lb.EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic)
 	d.Set(names.AttrIPAddressType, lb.IpAddressType)
 	d.Set(names.AttrName, lb.LoadBalancerName)
-	d.Set("exported", string(lb.Scheme) == "exported")
+	d.Set("internal", string(lb.Scheme) == "internal")
 	d.Set("load_balancer_type", lb.Type)
 	d.Set(names.AttrSecurityGroups, lb.SecurityGroups)
 	if err := d.Set("subnet_mapping", flattenSubnetMappingsFromAvailabilityZones(lb.AvailabilityZones)); err != nil {

@@ -13,7 +13,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/hashicorp/terraform-provider-aws/exported/generate/common"
+	"github.com/hashicorp/terraform-provider-aws/internal/generate/common"
 	"github.com/hashicorp/terraform-provider-aws/names"
 	namesgen "github.com/hashicorp/terraform-provider-aws/names/generate"
 )
@@ -73,7 +73,7 @@ func main() {
 		UpdateTagsFunc: *updateTagsFunc,
 	}
 
-	g.Infof("Generating exported/service/%s/%s", servicePackage, resourceFilename)
+	g.Infof("Generating internal/service/%s/%s", servicePackage, resourceFilename)
 	d := g.NewGoFileDestination(resourceFilename)
 
 	if err := d.BufferTemplate("taggen", resourceTemplateBody, templateData); err != nil {
@@ -84,7 +84,7 @@ func main() {
 		g.Fatalf("generating file (%s): %s", resourceFilename, err)
 	}
 
-	g.Infof("Generating exported/service/%s/%s", servicePackage, resourceTestFilename)
+	g.Infof("Generating internal/service/%s/%s", servicePackage, resourceTestFilename)
 	d = g.NewGoFileDestination(resourceTestFilename)
 
 	if err := d.BufferTemplate("taggen", resourceTestTemplateBody, templateData); err != nil {

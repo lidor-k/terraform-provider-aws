@@ -6,7 +6,7 @@ package dms_test
 import (
 	"testing"
 
-	tfdms "github.com/hashicorp/terraform-provider-aws/exported/service/dms"
+	tfdms "github.com/hashicorp/terraform-provider-aws/internal/service/dms"
 )
 
 func TestValidEndpointID(t *testing.T) {

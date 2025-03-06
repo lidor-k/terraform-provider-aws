@@ -63,7 +63,7 @@ func statusPublishingDestination(ctx context.Context, conn *guardduty.Client, de
 	}
 }
 
-// TODO: Migrate to shared exported package guardduty
+// TODO: Migrate to shared internal package guardduty
 func getOrganizationAdminAccount(ctx context.Context, conn *guardduty.Client, adminAccountID string) (*awstypes.AdminAccount, error) {
 	input := &guardduty.ListOrganizationAdminAccountsInput{}
 	var result *awstypes.AdminAccount

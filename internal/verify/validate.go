@@ -21,10 +21,10 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/structure"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
-	"github.com/hashicorp/terraform-provider-aws/exported/errs"
-	tfmaps "github.com/hashicorp/terraform-provider-aws/exported/maps"
-	itypes "github.com/hashicorp/terraform-provider-aws/exported/types"
-	"github.com/hashicorp/terraform-provider-aws/exported/types/timestamp"
+	"github.com/hashicorp/terraform-provider-aws/internal/errs"
+	tfmaps "github.com/hashicorp/terraform-provider-aws/internal/maps"
+	itypes "github.com/hashicorp/terraform-provider-aws/internal/types"
+	"github.com/hashicorp/terraform-provider-aws/internal/types/timestamp"
 )
 
 var accountIDRegexp = regexache.MustCompile(`^(aws|aws-managed|third-party|\d{12}|cw.{10})$`)
@@ -310,7 +310,7 @@ func IsIPv4CIDRBlockOrIPv6CIDRBlock(ipv4Validator, ipv6Validator schema.SchemaVa
 
 // KMS Key IDs (a subset of KMS Key Identifiers) can be be key ID, key ARN, alias name, or alias ARN.
 // There's no guarantee about the format of a Key ID other than a string between 1 and 2048 characters
-// (per KMS API documentation and exported AWS conversations).
+// (per KMS API documentation and internal AWS conversations).
 // ref: https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id
 // ref: https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html#KMS-Encrypt-request-KeyId
 func ValidKMSKeyID(v interface{}, k string) (ws []string, errors []error) {

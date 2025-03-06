@@ -8,8 +8,8 @@ import (
 	"testing"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/hashicorp/terraform-provider-aws/exported/create"
-	"github.com/hashicorp/terraform-provider-aws/exported/namevaluesfilters"
+	"github.com/hashicorp/terraform-provider-aws/internal/create"
+	"github.com/hashicorp/terraform-provider-aws/internal/namevaluesfilters"
 )
 
 func TestNameValuesFiltersMap(t *testing.T) {

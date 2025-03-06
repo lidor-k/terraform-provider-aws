@@ -7,8 +7,8 @@ import (
 	"testing"
 
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
-	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
-	tfram "github.com/hashicorp/terraform-provider-aws/exported/service/ram"
+	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
+	tfram "github.com/hashicorp/terraform-provider-aws/internal/service/ram"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

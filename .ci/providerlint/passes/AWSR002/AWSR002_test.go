@@ -6,8 +6,8 @@ import (
 	"golang.org/x/tools/go/analysis"
 )
 
-// analysistest testing with the actual keyvaluetags exported package requires
-// self-referencing an exported package. Vendoring via symlinks would need to
+// analysistest testing with the actual keyvaluetags internal package requires
+// self-referencing an internal package. Vendoring via symlinks would need to
 // be manually constructed and error prone. Using Go Modules to assemble the
 // testdata vendor directory would re-vendor thousands of source code files.
 // func TestAnalyzer(t *testing.T) {

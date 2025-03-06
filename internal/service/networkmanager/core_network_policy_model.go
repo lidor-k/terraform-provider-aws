@@ -7,7 +7,7 @@ import (
 	"encoding/json"
 	"slices"
 
-	"github.com/hashicorp/terraform-provider-aws/exported/flex"
+	"github.com/hashicorp/terraform-provider-aws/internal/flex"
 )
 
 type coreNetworkPolicyDocument struct {

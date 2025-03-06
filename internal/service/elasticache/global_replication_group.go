@@ -23,12 +23,12 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/retry"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
-	"github.com/hashicorp/terraform-provider-aws/exported/conns"
-	"github.com/hashicorp/terraform-provider-aws/exported/errs"
-	"github.com/hashicorp/terraform-provider-aws/exported/errs/sdkdiag"
-	"github.com/hashicorp/terraform-provider-aws/exported/sdkv2"
-	tfslices "github.com/hashicorp/terraform-provider-aws/exported/slices"
-	"github.com/hashicorp/terraform-provider-aws/exported/tfresource"
+	"github.com/hashicorp/terraform-provider-aws/internal/conns"
+	"github.com/hashicorp/terraform-provider-aws/internal/errs"
+	"github.com/hashicorp/terraform-provider-aws/internal/errs/sdkdiag"
+	"github.com/hashicorp/terraform-provider-aws/internal/sdkv2"
+	tfslices "github.com/hashicorp/terraform-provider-aws/internal/slices"
+	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -228,7 +228,7 @@ func customizeDiffGlobalReplicationGroupEngineVersionErrorOnDowngrade(_ context.
 	}
 
 	return fmt.Errorf(`Downgrading ElastiCache Global Replication Group (%s) engine version requires replacement
-of the Global Replication Group and all Replication Group members. The AWS provider cannot handle this exportedly.
+of the Global Replication Group and all Replication Group members. The AWS provider cannot handle this internally.
 
 Please use the "-replace" option on the terraform plan and apply commands (see https://www.terraform.io/cli/commands/plan#replace-address).`, diff.Id())
 }

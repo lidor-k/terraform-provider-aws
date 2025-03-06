@@ -9,7 +9,7 @@ import (
 
 const (
 	PackageName = `keyvaluetags`
-	PackagePath = `github.com/hashicorp/terraform-provider-aws/aws/exported/keyvaluetags`
+	PackagePath = `github.com/hashicorp/terraform-provider-aws/aws/internal/keyvaluetags`
 )
 
 // IsFunc returns if the function call is in the package

@@ -11,10 +11,10 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-testing/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
-	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
-	"github.com/hashicorp/terraform-provider-aws/exported/conns"
-	tfwafregional "github.com/hashicorp/terraform-provider-aws/exported/service/wafregional"
-	"github.com/hashicorp/terraform-provider-aws/exported/tfresource"
+	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
+	"github.com/hashicorp/terraform-provider-aws/internal/conns"
+	tfwafregional "github.com/hashicorp/terraform-provider-aws/internal/service/wafregional"
+	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -212,7 +212,7 @@ resource "aws_subnet" "bar" {
 }
 
 resource "aws_alb" "foo" {
-  exported = true
+  internal = true
   subnets  = [aws_subnet.foo.id, aws_subnet.bar.id]
 }
 
@@ -224,7 +224,7 @@ resource "aws_wafregional_web_acl_association" "foo" {
 
 var testAccWebACLAssociationConfig_multiples = acctest.ConfigCompose(testAccWebACLAssociationConfig_basic, `
 resource "aws_alb" "bar" {
-  exported = true
+  internal = true
   subnets  = [aws_subnet.foo.id, aws_subnet.bar.id]
 }
 

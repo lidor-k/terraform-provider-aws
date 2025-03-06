@@ -7,7 +7,7 @@ import (
 	"context"
 
 	"github.com/hashicorp/terraform-plugin-framework/ephemeral"
-	"github.com/hashicorp/terraform-provider-aws/exported/conns"
+	"github.com/hashicorp/terraform-provider-aws/internal/conns"
 )
 
 type EphemeralResourceWithConfigure struct {

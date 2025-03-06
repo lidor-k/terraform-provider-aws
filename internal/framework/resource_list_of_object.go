@@ -11,7 +11,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
-	fwtypes "github.com/hashicorp/terraform-provider-aws/exported/framework/types"
+	fwtypes "github.com/hashicorp/terraform-provider-aws/internal/framework/types"
 )
 
 // NewResourceComputedListOfObjectSchema returns a new schema.ListAttribute for objects of the specified type.

@@ -10,8 +10,8 @@ import (
 	"github.com/hashicorp/terraform-plugin-testing/knownvalue"
 	"github.com/hashicorp/terraform-plugin-testing/statecheck"
 	"github.com/hashicorp/terraform-plugin-testing/tfjsonpath"
-	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
-	tfmeta "github.com/hashicorp/terraform-provider-aws/exported/service/meta"
+	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
+	tfmeta "github.com/hashicorp/terraform-provider-aws/internal/service/meta"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

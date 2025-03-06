@@ -9,8 +9,8 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
-	"github.com/hashicorp/terraform-provider-aws/exported/conns"
-	tfs3 "github.com/hashicorp/terraform-provider-aws/exported/service/s3"
+	"github.com/hashicorp/terraform-provider-aws/internal/conns"
+	tfs3 "github.com/hashicorp/terraform-provider-aws/internal/service/s3"
 )
 
 func S3BucketHasTag(ctx context.Context, bucketName, key, value string) resource.TestCheckFunc {

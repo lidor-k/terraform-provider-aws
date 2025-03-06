@@ -6,8 +6,8 @@ package servicecatalog_test
 import (
 	"testing"
 
-	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
-	tfsc "github.com/hashicorp/terraform-provider-aws/exported/service/servicecatalog"
+	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
+	tfsc "github.com/hashicorp/terraform-provider-aws/internal/service/servicecatalog"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

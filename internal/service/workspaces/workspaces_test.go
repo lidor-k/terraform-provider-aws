@@ -6,7 +6,7 @@ package workspaces_test
 import (
 	"testing"
 
-	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
+	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
 )
 
 func TestAccWorkSpaces_serial(t *testing.T) {

@@ -6,7 +6,7 @@ package s3control_test
 import (
 	"testing"
 
-	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
+	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
 )
 
 func TestAccS3ControlAccessGrants_serial(t *testing.T) {

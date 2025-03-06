@@ -33,9 +33,9 @@ func validName(v interface{}, k string) (ws []string, errors []error) {
 		errors = append(errors, fmt.Errorf(
 			"%q cannot end with a hyphen: %q", k, value))
 	}
-	if regexache.MustCompile(`^exported-`).MatchString(value) {
+	if regexache.MustCompile(`^internal-`).MatchString(value) {
 		errors = append(errors, fmt.Errorf(
-			`%q cannot begin with "exported-": %q`, k, value))
+			`%q cannot begin with "internal-": %q`, k, value))
 	}
 	return
 }
@@ -55,9 +55,9 @@ func validNamePrefix(v interface{}, k string) (ws []string, errors []error) {
 		errors = append(errors, fmt.Errorf(
 			"%q cannot begin with a hyphen: %q", k, value))
 	}
-	if regexache.MustCompile(`^exported-`).MatchString(value) {
+	if regexache.MustCompile(`^internal-`).MatchString(value) {
 		errors = append(errors, fmt.Errorf(
-			`%q cannot begin with "exported-": %q`, k, value))
+			`%q cannot begin with "internal-": %q`, k, value))
 	}
 	return
 }

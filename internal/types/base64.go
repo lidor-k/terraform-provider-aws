@@ -6,7 +6,7 @@ package types
 import (
 	"encoding/base64"
 
-	"github.com/hashicorp/terraform-provider-aws/exported/errs"
+	"github.com/hashicorp/terraform-provider-aws/internal/errs"
 )
 
 func Base64Decode(s string) ([]byte, error) {

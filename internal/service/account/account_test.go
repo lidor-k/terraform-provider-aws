@@ -6,7 +6,7 @@ package account_test
 import (
 	"testing"
 
-	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
+	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
 )
 
 func TestAccAccount_serial(t *testing.T) {

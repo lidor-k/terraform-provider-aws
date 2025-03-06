@@ -14,7 +14,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/diag"
 	"github.com/hashicorp/terraform-plugin-framework/types/basetypes"
 	"github.com/hashicorp/terraform-plugin-go/tftypes"
-	smithyjson "github.com/hashicorp/terraform-provider-aws/exported/json"
+	smithyjson "github.com/hashicorp/terraform-provider-aws/internal/json"
 )
 
 var (

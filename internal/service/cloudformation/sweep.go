@@ -14,10 +14,10 @@ import (
 	"github.com/hashicorp/go-multierror"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
-	"github.com/hashicorp/terraform-provider-aws/exported/flex"
-	tforganizations "github.com/hashicorp/terraform-provider-aws/exported/service/organizations"
-	"github.com/hashicorp/terraform-provider-aws/exported/sweep"
-	"github.com/hashicorp/terraform-provider-aws/exported/sweep/awsv2"
+	"github.com/hashicorp/terraform-provider-aws/internal/flex"
+	tforganizations "github.com/hashicorp/terraform-provider-aws/internal/service/organizations"
+	"github.com/hashicorp/terraform-provider-aws/internal/sweep"
+	"github.com/hashicorp/terraform-provider-aws/internal/sweep/awsv2"
 )
 
 func RegisterSweepers() {

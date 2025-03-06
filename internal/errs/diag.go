@@ -9,7 +9,7 @@ import (
 
 	"github.com/hashicorp/go-cty/cty"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
-	tfslices "github.com/hashicorp/terraform-provider-aws/exported/slices"
+	tfslices "github.com/hashicorp/terraform-provider-aws/internal/slices"
 )
 
 const (

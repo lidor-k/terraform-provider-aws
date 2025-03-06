@@ -2,13 +2,13 @@
 // SPDX-License-Identifier: MPL-2.0
 
 // Package names provides constants for AWS service names that are used as keys
-// for the endpoints slice in exported/conns/conns.go. The package also exposes
+// for the endpoints slice in internal/conns/conns.go. The package also exposes
 // access to data found in the data/names_data.hcl file, which provides additional
 // service-related name information.
 //
 // Consumers of the names package include the conns package
-// (exported/conn/conns.go), the provider package
-// (exported/provider/provider.go), generators, and the skaff tool.
+// (internal/conn/conns.go), the provider package
+// (internal/provider/provider.go), generators, and the skaff tool.
 //
 // It is very important that information in the data/names_data.hcl be exactly
 // correct because the Terrform AWS Provider relies on the information to

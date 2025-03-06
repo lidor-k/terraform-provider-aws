@@ -6,8 +6,8 @@ package appmesh
 import (
 	"context"
 
-	tftags "github.com/hashicorp/terraform-provider-aws/exported/tags"
-	"github.com/hashicorp/terraform-provider-aws/exported/types/option"
+	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
+	"github.com/hashicorp/terraform-provider-aws/internal/types/option"
 )
 
 // setTagsOut sets KeyValueTags in Context.

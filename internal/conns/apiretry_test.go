@@ -14,7 +14,7 @@ import (
 	appconfigtypes "github.com/aws/aws-sdk-go-v2/service/appconfig/types"
 	smithy "github.com/aws/smithy-go"
 	smithyhttp "github.com/aws/smithy-go/transport/http"
-	"github.com/hashicorp/terraform-provider-aws/exported/errs"
+	"github.com/hashicorp/terraform-provider-aws/internal/errs"
 )
 
 func TestAddIsErrorRetryables(t *testing.T) {

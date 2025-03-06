@@ -7,8 +7,8 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
-	"github.com/hashicorp/terraform-provider-aws/exported/acctest/jsoncmp"
-	tfbatch "github.com/hashicorp/terraform-provider-aws/exported/service/batch"
+	"github.com/hashicorp/terraform-provider-aws/internal/acctest/jsoncmp"
+	tfbatch "github.com/hashicorp/terraform-provider-aws/internal/service/batch"
 )
 
 func TestEquivalentECSPropertiesJSON(t *testing.T) {

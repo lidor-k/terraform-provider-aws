@@ -16,13 +16,13 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/retry"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/hashicorp/terraform-provider-aws/exported/conns"
-	"github.com/hashicorp/terraform-provider-aws/exported/errs"
-	"github.com/hashicorp/terraform-provider-aws/exported/errs/sdkdiag"
-	"github.com/hashicorp/terraform-provider-aws/exported/sdkv2"
-	tfslices "github.com/hashicorp/terraform-provider-aws/exported/slices"
-	tftags "github.com/hashicorp/terraform-provider-aws/exported/tags"
-	"github.com/hashicorp/terraform-provider-aws/exported/tfresource"
+	"github.com/hashicorp/terraform-provider-aws/internal/conns"
+	"github.com/hashicorp/terraform-provider-aws/internal/errs"
+	"github.com/hashicorp/terraform-provider-aws/internal/errs/sdkdiag"
+	"github.com/hashicorp/terraform-provider-aws/internal/sdkv2"
+	tfslices "github.com/hashicorp/terraform-provider-aws/internal/slices"
+	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
+	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -186,7 +186,7 @@ func resourceParameterGroupUpdate(ctx context.Context, d *schema.ResourceData, m
 			//
 			// In the GovCloud partition it will return the below 500 error,
 			// which causes the AWS Go SDK to automatically retry and timeout:
-			//   InternalFailure: An exported error has occurred. Please try your query again at a later time.
+			//   InternalFailure: An internal error has occurred. Please try your query again at a later time.
 			//
 			// Instead of hardcoding the reserved-memory parameter removal
 			// above, which may become out of date, here we add logic to

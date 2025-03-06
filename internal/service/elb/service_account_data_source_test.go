@@ -7,8 +7,8 @@ import (
 	"testing"
 
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
-	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
-	tfelb "github.com/hashicorp/terraform-provider-aws/exported/service/elb"
+	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
+	tfelb "github.com/hashicorp/terraform-provider-aws/internal/service/elb"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

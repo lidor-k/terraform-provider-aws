@@ -6,8 +6,8 @@ package lakeformation_test
 import (
 	"testing"
 
-	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
-	tflf "github.com/hashicorp/terraform-provider-aws/exported/service/lakeformation"
+	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
+	tflf "github.com/hashicorp/terraform-provider-aws/internal/service/lakeformation"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 

@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/YakDriver/regexache"
-	"github.com/hashicorp/terraform-provider-aws/exported/verify"
+	"github.com/hashicorp/terraform-provider-aws/internal/verify"
 )
 
 func validSharePrincipal(v interface{}, k string) (ws []string, errors []error) {

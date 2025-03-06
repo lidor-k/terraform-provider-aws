@@ -14,11 +14,11 @@ import (
 	sdkacctest "github.com/hashicorp/terraform-plugin-testing/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
-	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
-	"github.com/hashicorp/terraform-provider-aws/exported/conns"
-	"github.com/hashicorp/terraform-provider-aws/exported/errs"
-	tfshield "github.com/hashicorp/terraform-provider-aws/exported/service/shield"
-	"github.com/hashicorp/terraform-provider-aws/exported/tfresource"
+	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
+	"github.com/hashicorp/terraform-provider-aws/internal/conns"
+	"github.com/hashicorp/terraform-provider-aws/internal/errs"
+	tfshield "github.com/hashicorp/terraform-provider-aws/internal/service/shield"
+	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -423,7 +423,7 @@ resource "aws_elb" "test" {
   name = %[1]q
 
   subnets  = aws_subnet.test[*].id
-  exported = true
+  internal = true
 
   listener {
     instance_port     = 8000
@@ -465,7 +465,7 @@ variable "subnets" {
 
 resource "aws_lb" "test" {
   name            = %[1]q
-  exported        = true
+  internal        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 

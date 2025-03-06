@@ -7,9 +7,9 @@ import (
 	"context"
 
 	"github.com/aws/aws-sdk-go-v2/service/datapipeline"
-	"github.com/hashicorp/terraform-provider-aws/exported/conns"
-	tftags "github.com/hashicorp/terraform-provider-aws/exported/tags"
-	"github.com/hashicorp/terraform-provider-aws/exported/types/option"
+	"github.com/hashicorp/terraform-provider-aws/internal/conns"
+	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
+	"github.com/hashicorp/terraform-provider-aws/internal/types/option"
 )
 
 // listTags lists datapipeline service tags.

@@ -19,10 +19,10 @@ import (
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 	"github.com/hashicorp/terraform-plugin-testing/plancheck"
 	"github.com/hashicorp/terraform-plugin-testing/terraform"
-	"github.com/hashicorp/terraform-provider-aws/exported/acctest"
-	"github.com/hashicorp/terraform-provider-aws/exported/conns"
-	tfelbv2 "github.com/hashicorp/terraform-provider-aws/exported/service/elbv2"
-	"github.com/hashicorp/terraform-provider-aws/exported/tfresource"
+	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
+	"github.com/hashicorp/terraform-provider-aws/internal/conns"
+	tfelbv2 "github.com/hashicorp/terraform-provider-aws/internal/service/elbv2"
+	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
 	"github.com/hashicorp/terraform-provider-aws/names"
 )
 
@@ -2164,7 +2164,7 @@ resource "aws_lb_listener" "test" {
 resource "aws_lb" "test" {
   name               = %[1]q
   load_balancer_type = "application"
-  exported           = true
+  internal           = true
   security_groups    = [aws_security_group.test.id]
   subnets            = aws_subnet.test[*].id
 
@@ -2217,7 +2217,7 @@ resource "aws_lb_listener" "test" {
 resource "aws_lb" "test" {
   name               = %[1]q
   load_balancer_type = "network"
-  exported           = true
+  internal           = true
   security_groups    = [aws_security_group.test.id]
   subnets            = aws_subnet.test[*].id
 
@@ -2311,7 +2311,7 @@ resource "aws_lb_listener" "test" {
 
 resource "aws_lb" "test" {
   name            = %[1]q
-  exported        = true
+  internal        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -2383,7 +2383,7 @@ resource "aws_lb_listener" "test" {
 
 resource "aws_lb" "test" {
   name            = %[1]q
-  exported        = true
+  internal        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -2472,7 +2472,7 @@ resource "aws_lb_listener" "test" {
 
 resource "aws_lb" "test" {
   name            = %[1]q
-  exported        = true
+  internal        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -2563,7 +2563,7 @@ resource "aws_lb_listener" "test" {
 
 resource "aws_lb" "test" {
   name            = %[1]q
-  exported        = true
+  internal        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -2655,7 +2655,7 @@ resource "aws_lb_listener" "test" {
 
 resource "aws_lb" "test" {
   name            = %[2]q
-  exported        = true
+  internal        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -2711,7 +2711,7 @@ resource "aws_lb_listener" "test" {
 
 resource "aws_lb" "test" {
   name            = %[1]q
-  exported        = true
+  internal        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -2777,7 +2777,7 @@ resource "aws_lb_listener" "test" {
 
 resource "aws_lb" "test" {
   name            = %[1]q
-  exported        = true
+  internal        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -2848,7 +2848,7 @@ resource "aws_lb_listener" "test" {
 
 resource "aws_lb" "test" {
   name            = %[1]q
-  exported        = true
+  internal        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -2920,7 +2920,7 @@ resource "aws_lb_listener" "test" {
 
 resource "aws_lb" "test" {
   name            = %[1]q
-  exported        = true
+  internal        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -3003,7 +3003,7 @@ resource "aws_lb_listener" "test" {
 
 resource "aws_lb" "test" {
   name            = %[1]q
-  exported        = true
+  internal        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -3082,7 +3082,7 @@ resource "aws_lb_listener" "test" {
 
 resource "aws_lb" "test" {
   name            = %[1]q
-  exported        = true
+  internal        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -3225,7 +3225,7 @@ resource "aws_lb_listener" "test" {
 resource "aws_lb" "test" {
   name               = %[1]q
   load_balancer_type = "network"
-  exported           = true
+  internal           = true
   security_groups    = [aws_security_group.test.id]
   subnets            = aws_subnet.test[*].id
 
@@ -3286,7 +3286,7 @@ resource "aws_lb_listener" "test" {
 
 resource "aws_lb" "test" {
   name               = %[1]q
-  exported           = true
+  internal           = true
   load_balancer_type = "application"
   security_groups    = [aws_security_group.test.id]
   subnets            = aws_subnet.test[*].id
@@ -3349,7 +3349,7 @@ resource "aws_lb_listener" "test" {
 
 resource "aws_lb" "test" {
   name               = %[1]q
-  exported           = true
+  internal           = true
   load_balancer_type = "application"
   security_groups    = [aws_security_group.test.id]
   subnets            = aws_subnet.test[*].id
@@ -3395,7 +3395,7 @@ resource "aws_lb_listener" "test" {
 
 resource "aws_lb" "test" {
   name            = %[1]q
-  exported        = true
+  internal        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -3468,7 +3468,7 @@ resource "aws_lb_listener" "test" {
 
 resource "aws_lb" "test" {
   name               = %[1]q
-  exported           = false
+  internal           = false
   load_balancer_type = "network"
   subnets            = aws_subnet.test[*].id
 
@@ -3523,7 +3523,7 @@ resource "aws_alb_listener" "test" {
 
 resource "aws_alb" "test" {
   name            = %[1]q
-  exported        = true
+  internal        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -3576,7 +3576,7 @@ resource "aws_lb_listener" "test" {
 
 resource "aws_lb" "test" {
   name            = %[1]q
-  exported        = false
+  internal        = false
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -3657,7 +3657,7 @@ resource "aws_lb_listener" "test" {
 
 resource "aws_lb" "test" {
   name            = %[1]q
-  exported        = true
+  internal        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -3731,7 +3731,7 @@ resource "aws_lb_listener" "test" {
 
 resource "aws_lb" "test" {
   name            = %[1]q
-  exported        = true
+  internal        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -3796,7 +3796,7 @@ resource "aws_lb_listener" "test" {
 
 resource "aws_lb" "test" {
   name            = %[1]q
-  exported        = true
+  internal        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -3914,7 +3914,7 @@ resource "aws_lb_listener" "test" {
 }
 
 resource "aws_lb" "test" {
-  exported           = true
+  internal           = true
   load_balancer_type = "network"
   name               = %[1]q
   subnets            = aws_subnet.test[*].id
@@ -3974,7 +3974,7 @@ resource "aws_lb_listener" "test" {
 
 resource "aws_lb" "test" {
   name            = %[1]q
-  exported        = true
+  internal        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -4008,7 +4008,7 @@ resource "aws_lb_listener" "test" {
 
 resource "aws_lb" "test" {
   name            = %[1]q
-  exported        = true
+  internal        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -4026,7 +4026,7 @@ func testAccListenerConfig_cognito(rName, key, certificate string) string {
 	return acctest.ConfigCompose(testAccListenerConfig_base(rName), fmt.Sprintf(`
 resource "aws_lb" "test" {
   name                       = %[1]q
-  exported                   = false
+  internal                   = false
   security_groups            = [aws_security_group.test.id]
   subnets                    = aws_subnet.test[*].id
   enable_deletion_protection = false
@@ -4130,7 +4130,7 @@ func testAccListenerConfig_oidc(rName, key, certificate string) string {
 	return acctest.ConfigCompose(testAccListenerConfig_base(rName), fmt.Sprintf(`
 resource "aws_lb" "test" {
   name                       = %[1]q
-  exported                   = false
+  internal                   = false
   security_groups            = [aws_security_group.test.id]
   subnets                    = aws_subnet.test[*].id
   enable_deletion_protection = false
@@ -4248,7 +4248,7 @@ resource "aws_iam_server_certificate" "test" {
 }
 
 resource "aws_lb" "test" {
-  exported        = true
+  internal        = true
   name            = %[1]q
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
@@ -4324,7 +4324,7 @@ resource "aws_iam_server_certificate" "test" {
 }
 
 resource "aws_lb" "test" {
-  exported        = true
+  internal        = true
   name            = %[1]q
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
@@ -4372,7 +4372,7 @@ resource "aws_lb_listener" "test" {
 
 resource "aws_lb" "test" {
   name            = %[1]q
-  exported        = true
+  internal        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
@@ -4429,7 +4429,7 @@ resource "aws_lb_listener" "test" {
 
 resource "aws_lb" "test" {
   name            = %[1]q
-  exported        = true
+  internal        = true
   security_groups = [aws_security_group.test.id]
   subnets         = aws_subnet.test[*].id
 
