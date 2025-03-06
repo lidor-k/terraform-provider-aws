@@ -1,4 +1,4 @@
-module github.com/lidor-k/terraform-provider-aws
+module github.com/hashicorp/terraform-provider-aws
 
 go 1.23.5
 
@@ -330,13 +330,11 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/ssooidc v1.29.1 // indirect
 	github.com/bgentry/speakeasy v0.2.0 // indirect
 	github.com/boombuler/barcode v1.0.1 // indirect
-	github.com/bufbuild/protocompile v0.6.0 // indirect
 	github.com/cloudflare/circl v1.6.0 // indirect
 	github.com/evanphx/json-patch v0.5.2 // indirect
 	github.com/fatih/color v1.18.0 // indirect
 	github.com/go-logr/logr v1.4.2 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
-	github.com/go-test/deep v1.1.0 // indirect
 	github.com/golang/protobuf v1.5.4 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
@@ -379,3 +377,5 @@ require (
 )
 
 replace github.com/hashicorp/terraform-plugin-log => github.com/gdavison/terraform-plugin-log v0.0.0-20230928191232-6c653d8ef8fb
+
+replace github.com/hashicorp/terraform-provider-aws => .
