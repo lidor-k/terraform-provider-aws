@@ -27,6 +27,10 @@ var (
 	ResourceTransitGateway                                         = resourceTransitGateway
 	ResourceTransitGatewayConnectPeer                              = resourceTransitGatewayConnectPeer
 	ResourceVPC                                                    = resourceVPC
+	ResourceVPCDHCPOptions                                         = resourceVPCDHCPOptions
+	ResourceEBSVolume                                              = resourceEBSVolume
+	ResourceEBSVolumeSnapshot                                      = resourceEBSSnapshot
+	ResourceNetworkInterface                                       = resourceNetworkInterface
 	ResourceInstance                                               = resourceInstance
 	ResourceSubnet                                                 = resourceSubnet
 	ResourceInternetGateway                                        = resourceInternetGateway

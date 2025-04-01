@@ -384,7 +384,11 @@ func client[T any](ctx context.Context, c *AWSClient, servicePackageName string,
 	// All customization for AWS SDK for Go v2 API clients must be done during construction.
 
 	if isDefault {
-		c.clients[servicePackageName] = client
+		if c.clients != nil {
+			c.clients[servicePackageName] = client
+		} else {
+			c.clients = map[string]any{servicePackageName: client}
+		}
 	}
 
 	return client, nil
